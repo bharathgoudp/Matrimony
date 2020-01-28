@@ -1,4 +1,6 @@
-
+{% extends 'headfooter.html' %}
+		{% block content %}
+		{% load static %}
 
 {% comment %} <html class="no-js" lang="zxx">
 
@@ -132,9 +134,7 @@
 				</div>
 			</header> {% endcomment %}
         
-        {% extends 'headfooter.html' %}
-		{% block content %}
-		{% load static %}
+        
         
                 
                 
@@ -143,7 +143,7 @@
                             
                             
                             
-                            <div class="main-banner" style="background-image:url(img/banner_home.jpg);">
+                            <div class="main-banner" style="background-image:url({% static 'img/banner_home.jpg' %});">
 			<div class="container">
                 <div class="row">
 				<div class="col-md-12 col-sm-12">
