@@ -1,4 +1,4 @@
-<html class="no-js" lang="zxx">
+{% comment %} <html class="no-js" lang="zxx">
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -160,10 +160,11 @@
 						</li>
 					</ul>
 				</div>
-			</header>
+			</header> {% endcomment %}
         
         
-        
+        {% extends 'headfooter.html' %}
+		{% block content %}
                 
                
                 
@@ -701,8 +702,9 @@
 				
 			</div>
 		</section>
+		{% endblock %}
                             
-		<footer class="dark-bg footer">
+		{% comment %} <footer class="dark-bg footer">
 			<div class="">
 				
 				<!-- Row Start -->
@@ -989,4 +991,4 @@
         
     </body>
 
-</html>
+</html> {% endcomment %}
