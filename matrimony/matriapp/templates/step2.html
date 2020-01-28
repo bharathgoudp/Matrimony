@@ -1,3 +1,6 @@
+  {% extends 'headfooter.html' %}
+		{% block content %}
+		{% load static %}
 {% comment %} <html class="no-js" lang="zxx">
 
 <head>
@@ -131,9 +134,7 @@
 			</header> {% endcomment %}
         
         
-         {% extends 'headfooter.html' %}
-		{% block content %}
-		{% load static %}
+       
                 
 				<section>
                             
@@ -305,7 +306,7 @@
                                     
                                     <div class="row">
                                         <div class="col-md-2">
-                                            <label>Raasi</label>
+                                            <label>BirthTime</label>
                                         </div>
                                         <div class="col-sm-8">
                                             <div class="row">
@@ -528,8 +529,8 @@
 					
 					
 					<div class="text-center">
-                        <botton><href="step3.html" type="submit" class="btn btn-m theme-btn sumnit_btn skip">Nextpage</botton>
-                        <botton><href="step3.html" type="Reset" class="btn btn-m theme-btn sumnit_btn">Exit</botton>
+                        <botton><a href="{% url 'step3' %}" type="submit" class="btn btn-m theme-btn sumnit_btn skip">Nextpage</a></botton>
+                        <botton><a href="{% url 'index' %}" type="Reset" class="btn btn-m theme-btn sumnit_btn">Exit</a></botton>
 					</div>
 					
 				</form>

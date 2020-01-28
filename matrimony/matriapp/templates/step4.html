@@ -1,3 +1,7 @@
+
+         {% extends 'headfooter.html' %}
+		{% block content %}
+        {% load static %}
 {% comment %} <html class="no-js" lang="zxx">
 
 <head>
@@ -131,9 +135,6 @@
 			</header> {% endcomment %}
         
         
-         {% extends 'headfooter.html' %}
-		{% block content %}
-        {% load static %}
                 
 				<section>
                             
@@ -374,7 +375,7 @@
                                         </div>
                                     </div>
                                     
-                                    <div class="row">
+                                    {% comment %} <div class="row">
                                         <div class="col-md-2">
                                             <label>Religion</label>
                                         </div>
@@ -400,7 +401,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    
+                                     {% endcomment %}
                                     <div class="row">
                                         <div class="col-md-2">
                                             <label>Religion</label>
@@ -483,8 +484,8 @@
                                         
 					
 					<div class="text-center">
-                        <botton><href="#" type="submit" class="btn btn-m theme-btn sumnit_btn skip">Submit</botton>
-                        <botton><href="#" type="Reset" class="btn btn-m theme-btn sumnit_btn">Exit</botton>
+                        <botton><a href="{% url 'myhome' %}" type="submit" class="btn btn-m theme-btn sumnit_btn skip">Submit</a></botton>
+                        <botton><a href="{% url 'index' %}" type="Reset" class="btn btn-m theme-btn sumnit_btn">Exit</a></botton>
 					</div>
 					
 				</form>

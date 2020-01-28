@@ -1,3 +1,7 @@
+{% extends 'headfooter.html' %}
+		{% block content %}
+		{% load static %}
+        
 {% comment %} <html class="no-js" lang="zxx">
 
 <head>
@@ -129,9 +133,6 @@
 					</ul>
 				</div>
 			</header> {% endcomment %}
-         {% extends 'headfooter.html' %}
-		{% block content %}
-		{% load static %}
         
         
                 
@@ -506,8 +507,8 @@
                                         
 					
 					<div class="text-center">
-                        <botton><href="#" type="submit" class="btn btn-m theme-btn sumnit_btn skip">NextPage</botton>
-                        <botton><href="#" type="Reset" class="btn btn-m theme-btn sumnit_btn">Exit</botton>
+                        <botton><a href="{% url 'step4' %}" type="submit" class="btn btn-m theme-btn sumnit_btn skip">NextPage</a></botton>
+                        <botton><a href="{% url 'index' %}" type="Reset" class="btn btn-m theme-btn sumnit_btn">Exit</a></botton>
 					</div>
 					
 				</form>

@@ -1,3 +1,7 @@
+{% extends 'headfooter.html' %}
+		{% block content %}
+		{% load static %}
+                
 {% comment %} <html class="no-js" lang="zxx">
 
 <head>
@@ -163,10 +167,7 @@
 			</header> {% endcomment %}
         
         
-        {% extends 'headfooter.html' %}
-		{% block content %}
-		{% load static %}
-                
+        
                
                 
 				<section>
@@ -219,7 +220,7 @@
                                     <small class="text-muted">T4697919</small>
                                     
                                     
-                                    <a data-toggle="modal" data-target=".bs-example-modal-lg" href="#">View Profile</a>
+                                    <a href="{% url 'selfprofile' %}">View Profile</a>
                                     <a href="#">Manage Photos</a>
                                     <a href="#">Edit Partner Preferences</a>
                                
@@ -366,7 +367,7 @@
                                         
 										<div class="col-md-3 col-sm-3">
 											<div class="cmp-job-review">
-												<a style="padding: 3px 2px;    min-width: 140px;background: #f28383 !important;" href="#" class="btn-job theme-btn job-apply">View full profile</a>
+												<a style="padding: 3px 2px;    min-width: 140px;background: #f28383 !important;" href="{% url 'myprofile' %}" class="btn-job theme-btn job-apply">View full profile</a>
 											</div>
 										</div>
 									</div>
