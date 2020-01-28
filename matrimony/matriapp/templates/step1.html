@@ -133,6 +133,7 @@
         
          {% extends 'headfooter.html' %}
 		{% block content %}
+        {% load static %}
                 
 				<section>
                             
@@ -147,7 +148,7 @@
                                         
                                         <div class="box">
 						<div class="box-header">
-							<h4><img src="img/icons/01.png">&nbsp;&nbsp;Basic Details</h4>
+							<h4><img src="{% static 'img/icons/01.png' %}">&nbsp;&nbsp;Basic Details</h4>
 						</div>
 						<div class="box-body">
 							<div class="row">
@@ -239,7 +240,7 @@
 					
 					   <div class="box">
 						<div class="box-header">
-							<h4><img src="img/icons/01.png">&nbsp;&nbsp;Religion Details</h4>
+							<h4><img src="{% static 'img/icons/01.png' %}">&nbsp;&nbsp;Religion Details</h4>
 						</div>
 						<div class="box-body">
 							<div class="row">
@@ -326,7 +327,7 @@
                                         
                                         <div class="box">
 						<div class="box-header">
-							<h4><img src="img/icons/02.png">&nbsp;&nbsp;Personal Details</h4>
+							<h4><img src="{% static 'img/icons/02.png' %}">&nbsp;&nbsp;Personal Details</h4>
 						</div>
 						<div class="box-body">
 							<div class="row">
@@ -488,7 +489,7 @@
                                         
 				<div class="box">
 						<div class="box-header">
-							<h4><img src="img/icons/03.png">&nbsp;&nbsp;Professional Details</h4>
+							<h4><img src="{% static 'img/icons/03.png' %}">&nbsp;&nbsp;Professional Details</h4>
 						</div>
 						<div class="box-body">
 							<div class="row">
