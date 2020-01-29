@@ -51,9 +51,37 @@
                         <li class="upload_video">
                             <a href="upload.html"><img src="{% static 'img/upload.png' %}"></a>
                         </li>
+						{% if user.is_authenticated %}
+						<li class="dropdown hoe-rheader-submenu message-notification left-min-30">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								<span><img class="img-circle user_img" src="{% static 'img/avatar-1.jpg' %}"></span>
+								<!--<span><b>Laxman Lucky</b> <i class=" fa fa-angle-down"></i></span>-->
+							</a>
+							<ul class="dropdown-menu ">
+								<li class="hoe-submenu-label">
+									<div class="profile-box">
+										<div class="media">
+											<a class="pull-left" href="user-profile.html">
+											<img class="img-circle" src="{% static 'img/avatar-1.jpg' %}">
+											</a>
+											<div class="media-body">
+												<h5 class="media-heading">Welcome <span>Lucky</span></h5>
+												<small>UI Developer</small>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li><a href="{% url 'myhome' %}"><i class="fa fa-user"></i>My Profile</a></li>
+								<li><a href="#"><i class="fa fa-cog"></i>Settings</a></li>
+								<li><a href="#"><i class="fa fa-question-circle"></i>Help</a></li>
+								<li><a href="{% url 'logout' %}"><i class="fa fa-power-off"></i>Logout</a></li>
+							</ul>
+						</li>
+						{% else %}
 						<li>
 							<a data-toggle="modal" data-target="#signin" class="login" href="#"><img src="{% static 'img/user.png' %}"> Sign in</a>
 						</li>
+						{% endif %}
 						<li class="dropdown hoe-rheader-submenu message-notification left-min-30">
 							<a href="#" class="dropdown-toggle icon-circle" data-toggle="dropdown" >
 							<i class="fa fa-bell-o"></i>
@@ -101,31 +129,7 @@
 								</li>
 							</ul>
 						</li>
-						<li class="dropdown hoe-rheader-submenu message-notification left-min-30">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-								<span><img class="img-circle user_img" src="{% static 'img/avatar-1.jpg' %}"></span>
-								<!--<span><b>Laxman Lucky</b> <i class=" fa fa-angle-down"></i></span>-->
-							</a>
-							<ul class="dropdown-menu ">
-								<li class="hoe-submenu-label">
-									<div class="profile-box">
-										<div class="media">
-											<a class="pull-left" href="user-profile.html">
-											<img class="img-circle" src="{% static 'img/avatar-1.jpg' %}">
-											</a>
-											<div class="media-body">
-												<h5 class="media-heading">Welcome <span>Lucky</span></h5>
-												<small>UI Developer</small>
-											</div>
-										</div>
-									</div>
-								</li>
-								<li><a href="#"><i class="fa fa-user"></i>My Profile</a></li>
-								<li><a href="#"><i class="fa fa-cog"></i>Settings</a></li>
-								<li><a href="#"><i class="fa fa-question-circle"></i>Help</a></li>
-								<li><a href="#"><i class="fa fa-power-off"></i>Logout</a></li>
-							</ul>
-						</li>
+						
 					</ul>
 				</div>
 			</header>

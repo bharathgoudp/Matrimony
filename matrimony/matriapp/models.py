@@ -1,6 +1,6 @@
 from django.db import models
 
-Create your models here.
+# Create your models here.
 class MotherTonguee(models.Model):
     locallang = models.CharField(max_length=30)
     def __str__(self):
@@ -43,8 +43,13 @@ class Cityy(models.Model):
      return self.cty
 class Agee(models.Model):
     ag = models.IntegerField()
-    def __str__(self):
+    def __int__ (self):
         return self.ag
+
+class Ageto(models.Model):
+    agto = models.IntegerField()
+    def __int__ (self):
+        return self.agto        
 class Religionn(models.Model):
     relig = models.CharField(max_length=25)
     def __str__(self):
@@ -91,26 +96,25 @@ class Matridata(models.Model):
     Contactno = models.IntegerField()
     Ancestralorigin = models.CharField(max_length=30)
     Hobbies_interes=models.CharField(max_length=500)
-    others=models.CharField( max_length=50)
+    hobothers=models.CharField( max_length=50)
     FavouriteMusic=models.CharField(max_length=50)
-    Others=models.CharFiled(max_length=50)
+    favOthers=models.CharField(max_length=50)
     Sportsfi=models.CharField(max_length=50)
-    Otherss=models.CharFiled(max_length=50)
+    sportOthers=models.CharField(max_length=50)
     spokenLang=models.CharField(max_length=50)
-    otherss=models.CharFiled(max_length=50)
-    prefredage=models.IntegerField()
+    langothers=models.CharField(max_length=50)
+    Agefrom=models.ForeignKey(Agee,on_delete=models.CASCADE)
+    Ageto=models.ForeignKey(Ageto,on_delete=models.CASCADE)
     Matritalstatus=models.CharField(max_length=50)
     Have_childeren=models.CharField(max_length=50)
-    prefredheigth=models.CharField(max_length=50)()
+    prefredheigth=models.CharField(max_length=50)
     Physical_status=models.CharField(max_length=50)
     Eatinghabits=models.CharField(max_length=50)
     Drinkinghabits=models.CharField(max_length=50)
     Smokinghabit=models.CharField(max_length=50)
-    Religion=models.ForeignKey(Religion,on_delete=models.CASCADE)
-    Religion_Castee=models.Foreignkey(cast,on_delete=models.CASCADE)
+    Religion=models.ForeignKey(Religionn,on_delete=models.CASCADE)
     kujaDosham=models.CharField(max_length=50)
-    star=models.Foreignkey(Starr,on_delete=models.CASCADE)
 
-   def __str__(self):
+    def __str__(self):
         return self.fname
 

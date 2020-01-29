@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, logout as auth_logout, login as au
 from django.contrib.auth.models import User
 from django.shortcuts import render,redirect
 from matriapp.forms import matriForm
-from matriapp.models import Matridata,Castee,Subcastee,Heightt,Weightt,Starr,Raasii,Countryy,Statee,Cityy,Agee,Religionn
+from matriapp.models import Matridata,Castee,Subcastee,Heightt,Weightt,Starr,Raasii,Countryy,Statee,Cityy,Agee,Ageto,Religionn
 
 
 # Create your views here.
@@ -48,39 +48,40 @@ def step3(request):
 
 def step4(request):
     ag = Agee.objects.all()
+    agto = Ageto.objects.all()
     rgn = Religionn.objects.all()
-    return render(request,'step4.html',{'ageee':ag,'religionnn':rgn}) 
+    return render(request,'step4.html',{'ageee':ag,'religionnn':rgn,'aggto':agto}) 
 
-# form function:
+# # form function:
 
 def matrisave(request):
     if request.method == 'POST':
-        form = MatriForm(request.POST,request.FILES)
+        form = matriForm(request.POST,request.FILES)
         if form.is_valid():
             form.save()
             return redirect(myprofile)
     else:
-        form = Matriform()
+        form = matriForm()
         return render(request, 'index.html', {'form': form})
 
 
-def edit(request, id):
-    matri = Matridata.objects.get(id=id)
-    return render(request, "edit.html", {'matri': matri})
+# def edit(request, id):
+#     matri = Matridata.objects.get(id=id)
+#     return render(request, "edit.html", {'matri': matri})
 
-def update(request, id):
-    matri = Matridata.objects.get(id=id):
-    form = MatriForm(request.POST, request.FILES, instance = matri)
-    if form.is_valid():
-        form.save()
-        return redirect(myprofile)
-    else:
-        return render(request, "edit.html", {'matri': matri})
+# def update(request, id):
+#     matri = Matridata.objects.get(id=id):
+#     form = MatriForm(request.POST, request.FILES, instance = matri)
+#     if form.is_valid():
+#         form.save()
+#         return redirect(myprofile)
+#     else:
+#         return render(request, "edit.html", {'matri': matri})
 
-def delete(request, id):
-    matri = Matridata.objects.get(id=id):
-    matri.delete()
-    return redirect(myprofile)
+# def delete(request, id):
+#     matri = Matridata.objects.get(id=id):
+#     matri.delete()
+#     return redirect(myprofile)
 
 
 
