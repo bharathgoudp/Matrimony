@@ -166,55 +166,18 @@
                                                 <span class="age_select">
                                                     <select class="wide form-control">
                                                         <option data-display="Select">Select</option>
-                                                        <option value="1">18</option>
-                                                        <option value="2">19</option>
-                                                        <option value="2">20</option>
-                                                        <option value="2">21</option>
-                                                        <option value="2">22</option>
-                                                        <option value="2">23</option>
-                                                        <option value="2">24</option>
-                                                        <option value="2">25</option>
-                                                        <option value="2">26</option>
-                                                        <option value="2">27</option>
-                                                        <option value="2">28</option>
-                                                        <option value="2">29</option>
-                                                        <option value="2">30</option>
-                                                        <option value="2">31</option>
-                                                        <option value="2">32</option>
-                                                        <option value="2">33</option>
-                                                        <option value="2">34</option>
-                                                        <option value="2">35</option>
-                                                        <option value="2">36</option>
-                                                        <option value="2">37</option>
-                                                        <option value="2">38</option>
-                                                        <option value="2">39</option>
-                                                        <option value="2">40</option>
-                                                        <option value="2">41</option>
+                                                        {% for x in ageee %}
+                                                        <option value="{{x.id}}">{{x.ag}}</option>
+                                                        {% endfor %}
                                                     </select>
                                                 </span>
                                                 <span class="to_age">To</span>
                                                 <span class="age_select">
                                                     <select class="wide form-control">
                                                         <option data-display="Select">Select</option>
-                                                        <option value="1">23</option>
-                                                        <option value="2">24</option>
-                                                        <option value="2">25</option>
-                                                        <option value="2">26</option>
-                                                        <option value="2">27</option>
-                                                        <option value="2">28</option>
-                                                        <option value="2">29</option>
-                                                        <option value="2">30</option>
-                                                        <option value="2">31</option>
-                                                        <option value="2">32</option>
-                                                        <option value="2">33</option>
-                                                        <option value="2">34</option>
-                                                        <option value="2">35</option>
-                                                        <option value="2">36</option>
-                                                        <option value="2">37</option>
-                                                        <option value="2">38</option>
-                                                        <option value="2">39</option>
-                                                        <option value="2">40</option>
-                                                        <option value="2">41</option>
+                                                        {% for x in ageee %}
+                                                        <option value="{{x.id}}">{{x.ag}}</option>
+                                                        {% endfor %}
                                                     </select>
                                                 </span>
                                             </p>
@@ -409,22 +372,9 @@
                                         <div class="col-sm-4">
                                             <select class="wide form-control">
                                                 <option data-display="Caste">Caste</option>
-                                                 <option value="0">Any</option>
-                                                    <option value="25" style="font-style:normal">24 Manai Telugu Chettiar</option>
-                                                    <option value="10">96 Kuli Maratha</option>
-                                                    <option value="11">Aaru Nattu Vellala</option>
-                                                    <option value="2">Achirapakkam Chettiar</option>
-                                                    <option value="3">Ad Dharmi</option>
-                                                    <option value="4">Adi Andhra</option>
-                                                    <option value="27" style="font-style:normal">Adi Dravidar</option>
-                                                    <option value="15">Adi Karnataka</option>
-                                                    <option value="16">Agamudayar / Arcot / Thuluva Vellala</option>
-                                                    <option value="5">Agaram Vellan Chettiar</option>
-                                                    <option value="6">Agarwal</option>
-                                                    <option value="7">Agnikula Kshatriya</option>
-                                                    <option value="17">Agrahari</option>
-                                                    <option value="8">Agri</option>
-                                                    <option value="8">Ahir Shimpi</option>
+                                                  {% for x in religionnn %}
+                                                        <option value="{{x.id}}">{{x.relig}}</option>
+                                                        {% endfor %}
                                             </select>
                                         </div>
                                     </div>
