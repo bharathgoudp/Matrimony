@@ -3,8 +3,8 @@ from django.contrib import auth
 from django.contrib.auth import authenticate, logout as auth_logout, login as auth_login
 from django.contrib.auth.models import User
 from django.shortcuts import render,redirect
-from matriapp.forms import matriForm
-from matriapp.models import Matridata,Castee,Subcastee,Heightt,Weightt,Starr,Raasii,Countryy,Statee,Cityy,Agee,Ageto,Religionn
+from matriapp.forms import Step1_Form,Step2_Form,Step3_Form,Step4_Form
+from matriapp.models import Step1,Step2,Step3,Step4,Castee,Subcastee,Heightt,Weightt,Starr,Raasii,Countryy,Statee,Cityy,Agee,Ageto,Religionn
 
 
 # Create your views here.
@@ -30,10 +30,13 @@ def search(request):
     return render(request,'search.html')
 
 def step1(request):
-    cst = Castee.objects.all()
-    subcst = Subcastee.objects.all()
-    ht = Heightt.objects.all()
-    return render(request,'step1.html',{'cste':cst,'sbcste':subcst,'heigt':ht})    
+    # cst = Castee.objects.all()
+    # subcst = Subcastee.objects.all()
+    # ht = Heightt.objects.all()
+    # return render(request,'step1.html',{'cste':cst,'sbcste':subcst,'heigt':ht})
+    # 
+    form=Step1_Form()
+    return render(request,'step1.html',{'form':form})    
 def step2(request):
     wt = Weightt.objects.all()
     strr = Starr.objects.all()
@@ -56,12 +59,12 @@ def step4(request):
 
 def matrisave(request):
     if request.method == 'POST':
-        form = matriForm(request.POST,request.FILES)
+        form = Step1_Form(request.POST,request.FILES)
         if form.is_valid():
             form.save()
             return redirect(myprofile)
     else:
-        form = matriForm()
+        form = Step1_Form()
         return render(request, 'index.html', {'form': form})
 
 

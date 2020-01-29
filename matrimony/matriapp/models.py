@@ -16,11 +16,14 @@ class Subcastee(models.Model):
 class Heightt(models.Model):
     hgt = models.CharField(max_length=10)
     def __str__(self):
-     return self.hgt
+        return self.hgt
+
+     
 class Weightt(models.Model):
     wght = models.CharField(max_length=10)
     def __str__(self):
-     return self.wght
+        return self.wght
+     
 class Starr(models.Model):
     chukka = models.CharField(max_length=30)
     def __str__(self):
@@ -42,19 +45,21 @@ class Cityy(models.Model):
     def __str__(self):
      return self.cty
 class Agee(models.Model):
-    ag = models.IntegerField()
-    def __int__ (self):
+    ag = models.CharField(max_length=20)
+    def __str__ (self):
         return self.ag
 
 class Ageto(models.Model):
-    agto = models.IntegerField()
-    def __int__ (self):
+    agto = models.CharField(max_length=20)
+    def __str__ (self):
         return self.agto        
 class Religionn(models.Model):
     relig = models.CharField(max_length=25)
     def __str__(self):
         return self.relig
-class Matridata(models.Model):
+
+
+class Step1(models.Model):
     Name = models.CharField(max_length=25)
     CreateProfile = models.CharField(max_length=20)
     Gender = models.CharField(max_length=15)
@@ -73,6 +78,11 @@ class Matridata(models.Model):
     AnyDisability = models.CharField(max_length=25)
     HighestEducation = models.CharField(max_length=30)
     Occupation = models.CharField(max_length=25)
+    def __str__(self):
+        return self.Name
+    
+ 
+class Step2(models.Model):    
     Bodytype = models.CharField(max_length=25)
     Weight = models.ForeignKey(Weightt,on_delete=models.CASCADE)
     Educationdetail = models.CharField(max_length=35)
@@ -95,14 +105,24 @@ class Matridata(models.Model):
     Familylocation = models.CharField(max_length=30)
     Contactno = models.IntegerField()
     Ancestralorigin = models.CharField(max_length=30)
-    Hobbies_interes=models.CharField(max_length=500)
-    hobothers=models.CharField( max_length=50)
+    def __str__(self):
+        return self.Bodytype
+    
+class Step3(models.Model):
+    Hobbies=models.CharField(max_length=500)
+    Hobothers=models.CharField( max_length=50)
     FavouriteMusic=models.CharField(max_length=50)
     favOthers=models.CharField(max_length=50)
     Sportsfi=models.CharField(max_length=50)
     sportOthers=models.CharField(max_length=50)
     spokenLang=models.CharField(max_length=50)
-    langothers=models.CharField(max_length=50)
+    Language_others=models.CharField(max_length=50)
+    def __str__(self):
+        return self.Hobbies
+    
+    
+
+class Step4(models.Model):
     Agefrom=models.ForeignKey(Agee,on_delete=models.CASCADE)
     Ageto=models.ForeignKey(Ageto,on_delete=models.CASCADE)
     Matritalstatus=models.CharField(max_length=50)
@@ -116,5 +136,5 @@ class Matridata(models.Model):
     kujaDosham=models.CharField(max_length=50)
 
     def __str__(self):
-        return self.fname
+        return self.Agefrom
 
