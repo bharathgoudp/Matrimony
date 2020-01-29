@@ -53,19 +53,34 @@ def step4(request):
 
 # form function:
 
-# matriapp(request):
-#     if request.method == 'POST':
-#         form = matriForm(request.POST,request.FILES)
-#         if form.is_valid():
-#             form.save()
-#             return redirect(myprofile)
-#     else:
-#         form = Employeeform()
-#         return render(request, 'index.html', {'form': form})
+def matrisave(request):
+    if request.method == 'POST':
+        form = MatriForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect(myprofile)
+    else:
+        form = Matriform()
+        return render(request, 'index.html', {'form': form})
 
 
+def edit(request, id):
+    matri = Matridata.objects.get(id=id)
+    return render(request, "edit.html", {'matri': matri})
 
+def update(request, id):
+    matri = Matridata.objects.get(id=id):
+    form = MatriForm(request.POST, request.FILES, instance = matri)
+    if form.is_valid():
+        form.save()
+        return redirect(myprofile)
+    else:
+        return render(request, "edit.html", {'matri': matri})
 
+def delete(request, id):
+    matri = Matridata.objects.get(id=id):
+    matri.delete()
+    return redirect(myprofile)
 
 
 
