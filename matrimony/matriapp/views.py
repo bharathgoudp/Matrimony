@@ -1,6 +1,10 @@
 from django.shortcuts import render,redirect
 from django.contrib import auth
 from django.contrib.auth.models import User
+from django.shortcuts import render,redirect
+from matriapp.forms import matriForm
+from matriapp.models import Matridata
+
 
 # Create your views here.
 def index(request):
@@ -35,6 +39,21 @@ def step3(request):
 
 def step4(request):
     return render(request,'step4.html') 
+
+# form function:
+
+# matriapp(request):
+#     if request.method == 'POST':
+#         form = matriForm(request.POST,request.FILES)
+#         if form.is_valid():
+#             form.save()
+#             return redirect(myprofile)
+#     else:
+#         form = Employeeform()
+#         return render(request, 'index.html', {'form': form})
+
+
+
 
 
 
