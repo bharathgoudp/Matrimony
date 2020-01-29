@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib import auth
+from django.contrib.auth import authenticate, logout as auth_logout, login as auth_login
 from django.contrib.auth.models import User
 from django.shortcuts import render,redirect
 from matriapp.forms import matriForm
@@ -92,9 +93,8 @@ def login(request):
         username = request.POST['username']
         password = request.POST['password']
         user= auth.authenticate(username=username, password=password)
-        print(user)
         if user is not None:
-            auth.login(request, user)
+            auth_login(request, user)
             return redirect(myhome)
         else:
             return render(request, 'index.html', {'error': 'username and password incorrect'})
@@ -102,5 +102,5 @@ def login(request):
         return redirect(login)
 
 def logout(request):
-    auth.logout(request)
+    auth_logout(request)
     return redirect('/')    
