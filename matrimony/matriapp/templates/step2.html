@@ -177,8 +177,9 @@
                                         <div class="col-sm-6">
                                             <select class="wide form-control">
                                                 <option>Select Weight</option>
-                                                <option value="1">Hardware</option>
-                                                <option value="2">Machanical</option>
+                                                {% for x in weight %}
+												<option value="{{x.id}}">{{x.wght}}</option>
+												{% endfor %}
                                             </select>
                                         </div>
                                     </div>
@@ -277,8 +278,9 @@
                                         <div class="col-sm-6">
                                             <select class="wide form-control">
                                                 <option>Select Star</option>
-                                                <option value="1">Hardware</option>
-                                                <option value="2">Machanical</option>
+                                                {% for x in starrr %}
+												<option value="{{x.id}}">{{x.chukka}}</option>
+												{% endfor %}
                                             </select>
                                         </div>
                                     </div>
@@ -290,8 +292,9 @@
                                         <div class="col-sm-6">
                                             <select class="wide form-control">
                                                 <option>Select Raasi</option>
-                                                <option value="1">Hardware</option>
-                                                <option value="2">Machanical</option>
+                                                {% for x in rasi %}
+												<option value="{{x.id}}">{{x.rasi}}</option>
+												{% endfor %}
                                             </select>
                                         </div>
                                     </div>
@@ -344,21 +347,24 @@
                                         </div>
                                         <div class="col-sm-6">
                                             <select class="wide form-control">
-                                                <option>India</option>
-                                                <option value="1">Hardware</option>
-                                                <option value="2">Machanical</option>
+                                                <option>Country</option>
+                                                 {% for x in countryyy %}
+												 <option value="{{x.id}}">{{x.cuntry}}</option>
+												 {% endfor %}
                                             </select>
                                             <br>
                                             <select class="wide form-control">
                                                 <option>State</option>
-                                                <option value="1">Hardware</option>
-                                                <option value="2">Machanical</option>
+                                                 {% for x in stateee %}
+												 <option value="{{x.id}}">{{x.stat}}</option>
+												 {% endfor %}
                                             </select>
                                             <br>
                                             <select class="wide form-control">
                                                 <option>City</option>
-                                                <option value="1">Hardware</option>
-                                                <option value="2">Machanical</option>
+                                               {% for x in cityyy %}
+											   <option value="{{x.id}}">{{x.cty}}</option>
+											   {% endfor %}
                                             </select>
                                         </div>
                                     </div>

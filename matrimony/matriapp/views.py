@@ -3,7 +3,7 @@ from django.contrib import auth
 from django.contrib.auth.models import User
 from django.shortcuts import render,redirect
 from matriapp.forms import matriForm
-from matriapp.models import Matridata
+from matriapp.models import Matridata,Castee,Subcastee,Heightt,Weightt,Starr,Raasii,Countryy,Statee,Cityy,Agee,Religionn
 
 
 # Create your views here.
@@ -29,16 +29,26 @@ def search(request):
     return render(request,'search.html')
 
 def step1(request):
-    return render(request,'step1.html')    
-
+    cst = Castee.objects.all()
+    subcst = Subcastee.objects.all()
+    ht = Heightt.objects.all()
+    return render(request,'step1.html',{'cste':cst,'sbcste':subcst,'heigt':ht})    
 def step2(request):
-    return render(request,'step2.html')  
+    wt = Weightt.objects.all()
+    strr = Starr.objects.all()
+    Rs = Raasii.objects.all()
+    cntry = Countryy.objects.all()
+    st = Statee.objects.all()
+    ct = Cityy.objects.all()
+    return render(request,'step2.html',{'weight':wt,'starrr':strr,'rasi':Rs,'countryyy':cntry,'stateee':st,'cityyy':ct})  
 
 def step3(request):
     return render(request,'step3.html')  
 
 def step4(request):
-    return render(request,'step4.html') 
+    ag = Agee.objects.all()
+    rgn = Religionn.objects.all()
+    return render(request,'step4.html',{'ageee':ag,'religionnn':rgn}) 
 
 # form function:
 

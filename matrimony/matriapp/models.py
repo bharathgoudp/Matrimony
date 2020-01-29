@@ -29,29 +29,23 @@ class Raasii(models.Model):
     rasi = models.CharField(max_length=30)
     def __str__(self):
      return self.rasi
-class Member(models.Model):
-    residing_cuntry = models.CharField(max_length=50)
-    residing_stat = models.CharField(max_length=50)
-    residing_cty = models.CharField(max_length=50)
 class Countryy(models.Model):
     cuntry = models.CharField(max_length=25)
     def __str__(self):
      return self.cuntry
 class Statee(models.Model):
     stat = models.CharField(max_length=25)
-    country = models.ForeignKey(Countryy)
     def __str__(self):
      return self.stat
 class Cityy(models.Model):
     cty = models.CharField(max_length=25)
-    city = models.ForeignKey(Cityy)
     def __str__(self):
      return self.cty
 class Agee(models.Model):
     ag = models.IntegerField()
     def __str__(self):
         return self.ag
-class Religion(models.Model):
+class Religionn(models.Model):
     relig = models.CharField(max_length=25)
     def __str__(self):
         return self.relig
@@ -99,11 +93,11 @@ class Matridata(models.Model):
     Hobbies_interes=models.CharField(max_length=500)
     others=models.CharField( max_length=50)
     FavouriteMusic=models.CharField(max_length=50)
-    othe=models.CharFiled(max_length=50)
+    Others=models.CharFiled(max_length=50)
     Sportsfi=models.CharField(max_length=50)
-    othee=models.CharFiled(max_length=50)
+    Otherss=models.CharFiled(max_length=50)
     spokenLang=models.CharField(max_length=50)
-    others=models.CharFiled(max_length=50)
+    otherss=models.CharFiled(max_length=50)
     prefredage=models.IntegerField()
     Matritalstatus=models.CharField(max_length=50)
     Have_childeren=models.CharField(max_length=50)

@@ -171,13 +171,13 @@
                                         <div class="col-sm-6">
                                             <select class="wide form-control">
                                                 <option data-display="Select">Select</option>
-                                                <option value="1">Selft</option>
-                                                <option value="2">Son</option>
-                                                <option value="2">Daughter</option>
-                                                <option value="2">Brother</option>
-                                                <option value="2">Sister</option>
-                                                <option value="2">Friend</option>
-                                                <option value="2">Relative</option>
+                                                <option value="Self">Self</option>
+                                                <option value="Son">Son</option>
+                                                <option value="Daughter">Daughter</option>
+                                                <option value="Brother">Brother</option>
+                                                <option value="Sister">Sister</option>
+                                                <option value="Friend">Friend</option>
+                                                <option value="Relative">Relative</option>
                                             </select>
                                         </div>
                                     </div>
@@ -208,6 +208,7 @@
                                                 <option value="Telugu">Telugu</option>
                                                 <option value="English">English</option>
                                                 <option value="Hindi">Hindi</option>
+                                                <option value="others">others</option>
                                             </select>
                                         </div>
                                     </div>
@@ -254,10 +255,9 @@
                                         <div class="col-sm-6">
                                             <select class="wide form-control">
                                                 <option data-display="Select Caste">Select Caste</option>
-                                                <option value="OBC">OBC</option>
-                                                <option value="OC">OC</option>
-                                                <option value="SC">SC</option>
-                                                <option value="ST">ST</option>
+                                               {% for x in cste %}
+                                                  <option value="{{x.id}}">{{x.cst}}</option> 
+                                                  {% endfor %}
                                             </select>
                                         </div>
                                     </div>
@@ -280,9 +280,9 @@
                                         </div>
                                         <div class="col-sm-6">
                                             <select class="wide form-control">
-                                                <option data-display="Select Caste">Select Subcaste</option>
-                                                <option value="1">Hardware</option>
-                                                <option value="2">Machanical</option>
+                                                {% for x in sbcste %}
+                                                <option value="{{x.id}}">{{x.subcst}}</option>
+                                                {% endfor %}
                                             </select>
                                         </div>
                                     </div>
@@ -390,8 +390,9 @@
                                         <div class="col-sm-4">
                                             <select class="wide form-control">
                                                 <option data-display="Select Caste">Select Height</option>
-                                                <!-- <option value="1">Hardware</option> -->
-                                                <!-- <option value="2">Machanical</option> -->
+                                              {% for x in heigt %}
+                                              <option value="{{x.id}}">{{x.hgt}}</option>
+                                              {% endfor %}
                                             </select>
                                         </div>
                                     </div>
