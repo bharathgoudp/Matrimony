@@ -1,12 +1,11 @@
 from django.shortcuts import render,redirect
 from django.contrib import auth
-from django.contrib import messages
 from django.contrib.auth import authenticate, logout as auth_logout, login as auth_login
 from django.contrib.auth.models import User
 from django.shortcuts import render,redirect
 from matriapp.forms import Step1_Form,Step2_Form,Step3_Form,Step4_Form
 from matriapp.models import Step1,Step2,Step3,Step4,Castee,Subcastee,Heightt,Weightt,Starr,Raasii,Countryy,Statee,Cityy,Agee,Ageto,Religionn
-
+from django.contrib import messages
 
 # Create your views here.
 def index(request):
@@ -31,34 +30,23 @@ def search(request):
     return render(request,'search.html')
 
 def step1(request):
-    # cst = Castee.objects.all()
-    # subcst = Subcastee.objects.all()
-    # ht = Heightt.objects.all()
-    # return render(request,'step1.html',{'cste':cst,'sbcste':subcst,'heigt':ht})
-    # 
     form=Step1_Form()
     return render(request,'step1.html',{'form':form})    
 def step2(request):
-    wt = Weightt.objects.all()
-    strr = Starr.objects.all()
-    Rs = Raasii.objects.all()
-    cntry = Countryy.objects.all()
-    st = Statee.objects.all()
-    ct = Cityy.objects.all()
-    return render(request,'step2.html',{'weight':wt,'starrr':strr,'rasi':Rs,'countryyy':cntry,'stateee':st,'cityyy':ct})  
+    form=Step2_Form()
+    return render(request,'step2.html',{'form':form})
 
 def step3(request):
-    return render(request,'step3.html')  
+    form=Step3_Form()
+    return render(request,'step3.html',{'form':form})  
 
 def step4(request):
-    ag = Agee.objects.all()
-    agto = Ageto.objects.all()
-    rgn = Religionn.objects.all()
-    return render(request,'step4.html',{'ageee':ag,'religionnn':rgn,'aggto':agto}) 
+    form=Step4_Form()
+    return render(request,'step3.html',{'form':form})  
 
 # # form function:
 
-def matrisave(request):
+def matrisave_1(request):
     if request.method == 'POST':
         form = Step1_Form(request.POST,request.FILES)
         if form.is_valid():
@@ -67,6 +55,42 @@ def matrisave(request):
     else:
         form = Step1_Form()
         return render(request, 'index.html', {'form': form})
+
+def matrisave_2(request):
+    if request.method == 'POST':
+        form = Step2_Form(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect(myprofile)
+    else:
+        form = Step2_Form()
+        return render(request, 'index.html', {'form': form})
+        
+def matrisave_3(request):
+    if request.method == 'POST':
+        form = Step3_Form(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect(myprofile)
+    else:
+        form = Step3_Form()
+        return render(request, 'index.html', {'form': form})
+
+def matrisave_4(request):
+    if request.method == 'POST':
+        form = Step4_Form(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect(myprofile)
+    else:
+        form = Step4_Form()
+        return render(request, 'index.html', {'form': form})
+
+
+
+
+
+
 
 
 # def edit(request, id):
@@ -98,11 +122,11 @@ def matrisave(request):
 
 def register(request):
     if request.method == 'POST':
-        firstname = request.POST('firstname')
-        lastname = request.POST('lastname')
-        email = request.POST('email')
-        password1 = request.POST('password')
-        password2 = request.POST('confirmpass')
+        firstname = request.POST['firstname']
+        lastname = request.POST['lastname']
+        email = request.POST['email']
+        password1 = request.POST['password']
+        password2 = request.POST['confirmpass']
         if password1 == password2:
 
             if User.objects.filter(email=email).exists():
@@ -122,8 +146,8 @@ def register(request):
 
 def login(request):
     if request.method == 'POST':
-        username = request.POST('username')
-        password = request.POST('password')
+        username = request.POST['uname']
+        password = request.POST['password']
         user= auth.authenticate(username=username, password=password)
         if user is not None:
             auth_login(request, user)
@@ -134,6 +158,8 @@ def login(request):
             return render(request, 'index.html')
     else:
         return redirect(login)
+
+
 
 def logout(request):
     auth_logout(request)
