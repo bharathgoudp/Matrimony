@@ -49,6 +49,41 @@ employedin=(
     ('Self Employed','Self Employed'),
     ('Not working','Not working')
 )
+# step2 radiobuttons
+Bodytype(
+    ('Slim','Slim'),
+    ('Average','Average'),
+    ('Athletic','Athletic'),
+    ('Heavy','Heavy')
+)
+
+Eatinghabbit(
+    ('Vegetarian':'Vegetarian'),
+    ('Non-Vegetarian':'Non-Vegetarian'),
+    ('Eggetarian':'Eggetarian')
+)
+
+Drinkinghabit(
+    ('No','No'),
+    ('Drinks Socially','Drinks Socially'),
+    ('Yes','Yes')
+)
+
+smokinghabit(
+    ('No','No'),
+    ('Occasionally','Occasionally'),
+    ('Yes','Yes')
+)
+FamilyLocation(
+    ('Same as my Location','Same as my Location'),
+    ('Different Location','Different Location')
+)
+
+# step3 radio buttons
+
+hobbies(
+    ('Cooking','Cooking')
+)
 
 class Step1_Form(forms.ModelForm):
     Dosham=forms.ChoiceField(choices=dosham, widget=forms.RadioSelect(attrs={'class': 'special'}))
@@ -65,11 +100,18 @@ class Step1_Form(forms.ModelForm):
         
 
 class Step2_Form(forms.ModelForm):
+    Bodytype=forms.CHoiceField(choices=Bodytype,widget=forms.RadioSelect(attrs={'class':'special'}))
+    Eatinghabit=forms.CHoiceField(choices=Eatinghabbit,widget=forms.RadioSelect(attrs={'class':'special'}))
+    Drinkinghabit=forms.CHoiceField(choices=Drinkinghabit,widget=forms.RadioSelect(attrs={'class':'special'}))
+    Smokinghabit=forms.ChoiceField(choices=Drinkinghabit,widget=forms.RadioSelect(attrs={'class':'special'}))
+    Familylocation=forms.ChoiceField(choices=FamilyLocation,widget=forms.RadioSelect(attrs={'class':'special'}))
     class Meta:
         model=Step2
         fields="__all__"
 
 class Step3_Form(forms.ModelForm):
+
+
     class Meta:
         model=Step3
         fields="__all__"
