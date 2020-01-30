@@ -51,7 +51,7 @@ employedin=(
 )
 
 class Step1_Form(forms.ModelForm):
-    Dosham=forms.ChoiceField(choices=dosham, widget=forms.RadioSelect(attrs={'class': 'special',}),)
+    Dosham=forms.ChoiceField(choices=dosham, widget=forms.RadioSelect(attrs={'class': 'special'}))
     MaritalStatus=forms.ChoiceField(choices=meritalstatus,widget=forms.RadioSelect(attrs={'class':'special'}))
     NoofChildren=forms.ChoiceField(choices=Noofchildren, widget=forms.RadioSelect(attrs={'class':'special'}))
     FamilyStatus=forms.ChoiceField(choices=familystatus, widget=forms.RadioSelect(attrs={'class':'special'}))

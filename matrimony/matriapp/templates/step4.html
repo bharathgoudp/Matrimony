@@ -146,10 +146,14 @@
                                     <div class="row">
                                         <div class="col-md-1"></div>
                                         <div class="col-md-10">
-                                             <form action="{% url 'save' %}" method="post" class="c-form">
-												{% {% csrf_token %} %}
+                                             <form action="{% url 'save4' %}" method="post" class="c-form">
+												{% csrf_token %}
 					                   <div class="box">
-						<div class="box-header">
+
+									       {{form.as_table}}
+
+										   
+						{% comment %} <div class="box-header">
 							<h4>Basic & Religion Preferences</h4>
 						</div>
 						<div class="box-body">
@@ -365,7 +369,7 @@
                                         </div>
                                     </div>
                                      {% endcomment %}
-                                    <div class="row">
+                                    {% comment %} <div class="row">
                                         <div class="col-md-2">
                                             <label>Religion</label>
                                         </div>
@@ -433,15 +437,16 @@
                     
                                         
 					
-					<div class="text-center">
-                        <botton><a href="{% url 'myhome' %}" type="submit" class="btn btn-m theme-btn sumnit_btn skip">Submit</a></botton>
-                        <botton><a href="{% url 'index' %}" type="Reset" class="btn btn-m theme-btn sumnit_btn">Exit</a></botton>
-					</div>
-					
+					 {% endcomment %}
 				</form>
                                         </div>
                                         <div class="col-md-1"></div>
                                     </div>
+									<div class="text-center">
+                        				<botton><a href="{% url 'myhome' %}" type="submit" class="btn btn-m theme-btn sumnit_btn skip">Submit</a></botton>
+                        			
+									</div>
+					 
 
                                    
 

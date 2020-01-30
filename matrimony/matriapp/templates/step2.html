@@ -145,10 +145,13 @@
                                     <div class="row">
                                         <div class="col-md-1"></div>
                                         <div class="col-md-10">
-                                            <form action="{% url 'save' %}" method="post" class="c-form">
-					                           {% {% csrf_token %} %}
-					<div class="box">
-						<div class="box-header">
+                                            <form action="{% url 'save2' %}" method="post" class="c-form">
+					                           {% csrf_token %}
+					 <div class="box">
+
+
+					   					 {{form.as_table}}
+						{% comment %}<div class="box-header">
 							<h4><img src="{% static 'img/icons/02.png' %}">&nbsp;&nbsp;Basic Information</h4>
 						</div>
 						<div class="box-body">
@@ -534,18 +537,18 @@
                                         
 					
 					
-					<div class="text-center">
-                        <botton><a href="{% url 'step3' %}" type="submit" class="btn btn-m theme-btn sumnit_btn skip">Nextpage</a></botton>
-                        <botton><a href="{% url 'index' %}" type="Reset" class="btn btn-m theme-btn sumnit_btn">Exit</a></botton>
-					</div>
-					
+					 {% endcomment %}
 				</form>
                                         </div>
                                         <div class="col-md-1"></div>
                                     </div>
+									
+					<div class="text-center">
+                        <botton><a href="{% url 'step3' %}" type="submit" class="btn btn-m theme-btn sumnit_btn skip">Nextpage</a></botton>
+                        <botton><a href="{% url 'index' %}" type="Reset" class="btn btn-m theme-btn sumnit_btn">back</a></botton>
+					</div>
 
-                                    
-
+                                
                                 </div>
                             </section>
                             {% endblock %}
