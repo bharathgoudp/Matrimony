@@ -76,7 +76,9 @@ class Step1(models.Model):
     FamilyType = models.CharField(max_length=20)
     FamilyValues = models.CharField(max_length=25)
     AnyDisability = models.CharField(max_length=25)
+    print("Professional Details:")
     HighestEducation = models.CharField(max_length=30)
+    EmployedIn = models.CharField(max_length=25)
     Occupation = models.CharField(max_length=25)
     def __str__(self):
         return self.Name
