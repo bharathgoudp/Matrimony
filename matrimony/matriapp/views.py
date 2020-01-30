@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib import auth
+from django.contrib import messages
 from django.contrib.auth import authenticate, logout as auth_logout, login as auth_login
 from django.contrib.auth.models import User
 from django.shortcuts import render,redirect
@@ -97,36 +98,40 @@ def matrisave(request):
 
 def register(request):
     if request.method == 'POST':
-        firstname = request.POST['firstname']
-        lastname = request.POST['lastname']
-        email = request.POST['email']
-        password1 = request.POST['password']
-        password2 = request.POST['confirmpass']
+        firstname = request.POST('firstname')
+        lastname = request.POST('lastname')
+        email = request.POST('email')
+        password1 = request.POST('password')
+        password2 = request.POST('confirmpass')
         if password1 == password2:
 
             if User.objects.filter(email=email).exists():
-                return render(request, 'index.html', {'error': 'username already exists'})
+                messages.error(request, "Email already exists")
+                return render(request, 'index.html')
             else:
 
                 user=User.objects.create_user(username=email,first_name=firstname,last_name=lastname,email=email,password=password1)
                 Log_User=authenticate(username=email,password=password1)
                 auth.login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+                messages.success(request, "Registered successfully")
                 return redirect(step1)
         else:
-            return render(request, 'index.html', {'error': 'passwords not match'})
+            return render(request, 'index.html')
     else:
         return render(request, 'index.html')
 
 def login(request):
     if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
+        username = request.POST('username')
+        password = request.POST('password')
         user= auth.authenticate(username=username, password=password)
         if user is not None:
             auth_login(request, user)
+            messages.success(request, "Login successfull")
             return redirect(myhome)
         else:
-            return render(request, 'index.html', {'error': 'username and password incorrect'})
+            messages.error(request, "Invalid credentials")
+            return render(request, 'index.html')
     else:
         return redirect(login)
 

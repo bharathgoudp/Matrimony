@@ -9,18 +9,18 @@ dosham=(
     ('no','NO'),
     ("don't","Don't know")
 )
-meritalstatus=(
+maritalstatus=(
     ('Never Married ','Never Married '),
     ('Widowed ','Widowed '),
     ('Divorced','Divorced'),
     ('Awaiting divorce','Awaiting divorce')
 )
 
-
+messages.error(request, "Invalid credentials")
 
 class Step1_Form(forms.ModelForm):
     Dosham=forms.ChoiceField(choices=dosham, widget=forms.RadioSelect(attrs={'class': 'special',}),)
-    MaritalStatus=forms.ChoiceField(choices=meritalstatus,widget=forms.RadioSelect(attrs={'class':'special'}))
+    MaritalStatus=forms.ChoiceField(choices=maritalstatus,widget=forms.RadioSelect(attrs={'class':'special'}))
     class Meta:
         model=Step1
         fields = "__all__"

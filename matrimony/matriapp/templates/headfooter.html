@@ -32,6 +32,16 @@
 	</head>
 	
 	<body>
+	{% if messages %}
+   <ul class="messages">
+   {% for message in messages %}
+	   <div class="alert alert-{% if message.tags == 'success' %}success{% else %}danger{% endif %} alert-dismissible">
+           <button type="button" class="close" data-dismiss="alert">&times;</button>
+      {{ message }}
+      </div>
+   {% endfor %}
+</ul>
+{% endif %}
 		
         <header class="main_header">
 				{% comment %} <span class="hoe-sidebar-toggle"><a href="#"></a></span> {% endcomment %}
@@ -296,7 +306,7 @@
 										<a href="#" title="Forget" class="fl-right">Forgot Password?</a>
 									</div>
 									<div class="form-group text-center">
-										<button type="button" class="btn theme-btn full-width btn-m">Sign In </button>
+										<button type="submit" class="btn theme-btn full-width btn-m">Sign In </button>
 									</div>
 									
 								</form>
