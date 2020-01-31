@@ -58,6 +58,12 @@ Bodytype=(
 )
 
 Eatinghabbit=(
+<<<<<<< HEAD
+=======
+    ('Vegetarian':'Vegetarian'),
+    ('Non-Vegetarian':'Non-Vegetarian'),
+    ('Eggetarian':'Eggetarian')
+>>>>>>> af0966098fc7c4cbac366a3c8f77f1f5b9969aa5
     ('Vegetarian','Vegetarian'),
     ('Non-Vegetarian','Non-Vegetarian'),
     ('Eggetarian','Eggetarian')
@@ -104,6 +110,40 @@ hobbies=(
     (' Movies',' Movies'),
     ('Internet Surfing','Internet Surfing'),
     ('Traveling','Traveling')
+<<<<<<< HEAD
+)
+
+
+favouriteMusic=(
+    ('Film songs','Film songs'),
+    ('Indian /Classical Music','Indian /Classical Music'),
+    (' Western Music',' Western Music')
+)
+sportesFItness=(
+    ('Cricket','Cricket'),
+    ('Carrom','Carrom'),
+    ('Chess','Chess'),
+    (' Jogging',' Jogging'),
+    ('Badminton','Badminton'),
+    ('Swimming','Swimming'),
+    ('Tennis','Tennis'),
+    ('Football','Football')
+    
+)
+
+spokenlangauge=(
+    ('English','English'),
+    ('Hindi','Hindi'),
+    ('Tamil','Tamil'),
+    ('Telugu','Telugu'),
+    ('Malayalam','Malayalam'),
+    ('Kannada','Kannada'),
+    ('Gujarati','Gujarati'),
+    ('Marathi','Marathi'),
+    ('Urdu','Urdu')
+    
+=======
+>>>>>>> af0966098fc7c4cbac366a3c8f77f1f5b9969aa5
 )
 
 
@@ -136,6 +176,7 @@ spokenlangauge=(
     ('Urdu','Urdu')
     
 )
+
 
 class Step1_Form(forms.ModelForm):
     Dosham=forms.ChoiceField(choices=dosham, widget=forms.RadioSelect(attrs={'class': 'special'}))
