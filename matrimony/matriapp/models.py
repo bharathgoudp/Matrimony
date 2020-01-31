@@ -127,13 +127,13 @@ class Step3(models.Model):
 class Step4(models.Model):
     Agefrom=models.ForeignKey(Agee,on_delete=models.CASCADE)
     Ageto=models.ForeignKey(Ageto,on_delete=models.CASCADE)
-    Matritalstatus=models.CharField(max_length=50)
+    Marital_status=models.CharField(max_length=50)
     Have_childeren=models.CharField(max_length=50)
     prefredheigth=models.CharField(max_length=50)
     Physical_status=models.CharField(max_length=50)
-    Eatinghabits=models.CharField(max_length=50)
-    Drinkinghabits=models.CharField(max_length=50)
-    Smokinghabit=models.CharField(max_length=50)
+    Eating_habits=models.CharField(max_length=50)
+    Drinking_habits=models.CharField(max_length=50)
+    Smoking_habit=models.CharField(max_length=50)
     Religion=models.ForeignKey(Religionn,on_delete=models.CASCADE)
     kujaDosham=models.CharField(max_length=50)
 
