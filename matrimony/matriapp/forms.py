@@ -50,40 +50,86 @@ employedin=(
     ('Not working','Not working')
 )
 # step2 radiobuttons
-Bodytype(
+Bodytype=(
     ('Slim','Slim'),
     ('Average','Average'),
     ('Athletic','Athletic'),
     ('Heavy','Heavy')
 )
 
-Eatinghabbit(
-    ('Vegetarian':'Vegetarian'),
-    ('Non-Vegetarian':'Non-Vegetarian'),
-    ('Eggetarian':'Eggetarian')
+Eatinghabbit=(
+    ('Vegetarian','Vegetarian'),
+    ('Non-Vegetarian','Non-Vegetarian'),
+    ('Eggetarian','Eggetarian')
 )
 
-Drinkinghabit(
+Drinkinghabit=(
     ('No','No'),
     ('Drinks Socially','Drinks Socially'),
     ('Yes','Yes')
 )
 
-smokinghabit(
+smokinghabit=(
     ('No','No'),
     ('Occasionally','Occasionally'),
     ('Yes','Yes')
 )
-FamilyLocation(
+FamilyLocation=(
     ('Same as my Location','Same as my Location'),
     ('Different Location','Different Location')
 )
 
 # step3 radio buttons
 
-hobbies(
-    ('Cooking','Cooking')
+hobbies=(
+    ('Cooking','Cooking'),
+    (' Nature',' Nature'),
+    (' Dancing',' Dancing'),
+    ('Photography','Photography'),
+    ('Dancing','Dancing'),
+    ('Painting','Painting'),
+    ('pets',' Pets'),
+    ('Playing Musical Instruments','Playing Musical Instruments'),
+    (' Puzzles',' Puzzles'),
+    ('Gardening /Landscaping','Gardening /Landscaping'),
+    ('Art / Handicraft','Art / Handicraft'),
+    ('Listening to Music','Listening to Music'),
+    (' Movies',' Movies'),
+    ('Internet Surfing','Internet Surfing'),
+    ('Traveling','Traveling')
 )
+
+
+favouriteMusic=(
+    ('Film songs','Film songs'),
+    ('Indian /Classical Music','Indian /Classical Music'),
+    (' Western Music',' Western Music')
+)
+sportesFItness=(
+    ('Cricket','Cricket'),
+    ('Carrom','Carrom'),
+    ('Chess','Chess'),
+    (' Jogging',' Jogging'),
+    ('Badminton','Badminton'),
+    ('Swimming','Swimming'),
+    ('Tennis','Tennis'),
+    ('Football','Football')
+    
+)
+
+spokenlangauge=(
+    ('English','English'),
+    ('Hindi','Hindi'),
+    ('Tamil','Tamil'),
+    ('Telugu','Telugu'),
+    ('Malayalam','Malayalam'),
+    ('Kannada','Kannada'),
+    ('Gujarati','Gujarati'),
+    ('Marathi','Marathi'),
+    ('Urdu','Urdu')
+    
+)
+
 
 class Step1_Form(forms.ModelForm):
     Dosham=forms.ChoiceField(choices=dosham, widget=forms.RadioSelect(attrs={'class': 'special'}))
@@ -100,23 +146,26 @@ class Step1_Form(forms.ModelForm):
         
 
 class Step2_Form(forms.ModelForm):
-    Bodytype=forms.CHoiceField(choices=Bodytype,widget=forms.RadioSelect(attrs={'class':'special'}))
-    Eatinghabit=forms.CHoiceField(choices=Eatinghabbit,widget=forms.RadioSelect(attrs={'class':'special'}))
-    Drinkinghabit=forms.CHoiceField(choices=Drinkinghabit,widget=forms.RadioSelect(attrs={'class':'special'}))
-    Smokinghabit=forms.ChoiceField(choices=Drinkinghabit,widget=forms.RadioSelect(attrs={'class':'special'}))
+    Bodytype=forms.ChoiceField(choices=Bodytype,widget=forms.RadioSelect(attrs={'class':'special'}))
+    Eatinghabit=forms.ChoiceField(choices=Eatinghabbit,widget=forms.RadioSelect(attrs={'class':'special'}))
+    Drinkinghabit=forms.ChoiceField(choices=Drinkinghabit,widget=forms.RadioSelect(attrs={'class':'special'}))
+    Smokinghabit=forms.ChoiceField(choices=smokinghabit,widget=forms.RadioSelect(attrs={'class':'special'}))
     Familylocation=forms.ChoiceField(choices=FamilyLocation,widget=forms.RadioSelect(attrs={'class':'special'}))
     class Meta:
         model=Step2
         fields="__all__"
 
 class Step3_Form(forms.ModelForm):
-
-
+    Hobbies=forms.ChoiceField(choices=hobbies,widget=forms.CheckboxSelectMultiple(attrs={'class':'special'}))
+    FavouriteMusic=forms.ChoiceField(choices=favouriteMusic,widget=forms.CheckboxSelectMultiple(attrs={'class':'special'}))
+    Sportsfi=forms.ChoiceField(choices=sportesFItness,widget=forms.CheckboxSelectMultiple(attrs={'class':'special'}))
+    spokenLang=forms.ChoiceField(choices=spokenlangauge,widget=forms.CheckboxSelectMultiple(attrs={'class':'special'}))
     class Meta:
         model=Step3
         fields="__all__"
 
 class Step4_Form(forms.ModelForm):
+
     class Meta:
         model=Step4
         fields="__all__"                
