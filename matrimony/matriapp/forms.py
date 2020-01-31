@@ -88,8 +88,53 @@ have_children = (
 
 # step3 radio buttons
 
-hobbies(
-    ('Cooking','Cooking')
+hobbies=(
+    ('Cooking','Cooking'),
+    (' Nature',' Nature'),
+    (' Dancing',' Dancing'),
+    ('Photography','Photography'),
+    ('Dancing','Dancing'),
+    ('Painting','Painting'),
+    ('pets',' Pets'),
+    ('Playing Musical Instruments','Playing Musical Instruments'),
+    (' Puzzles',' Puzzles'),
+    ('Gardening /Landscaping','Gardening /Landscaping'),
+    ('Art / Handicraft','Art / Handicraft'),
+    ('Listening to Music','Listening to Music'),
+    (' Movies',' Movies'),
+    ('Internet Surfing','Internet Surfing'),
+    ('Traveling','Traveling')
+)
+
+
+favouriteMusic=(
+    ('Film songs','Film songs'),
+    ('Indian /Classical Music','Indian /Classical Music'),
+    (' Western Music',' Western Music')
+)
+sportesFItness=(
+    ('Cricket','Cricket'),
+    ('Carrom','Carrom'),
+    ('Chess','Chess'),
+    (' Jogging',' Jogging'),
+    ('Badminton','Badminton'),
+    ('Swimming','Swimming'),
+    ('Tennis','Tennis'),
+    ('Football','Football')
+    
+)
+
+spokenlangauge=(
+    ('English','English'),
+    ('Hindi','Hindi'),
+    ('Tamil','Tamil'),
+    ('Telugu','Telugu'),
+    ('Malayalam','Malayalam'),
+    ('Kannada','Kannada'),
+    ('Gujarati','Gujarati'),
+    ('Marathi','Marathi'),
+    ('Urdu','Urdu')
+    
 )
 
 class Step1_Form(forms.ModelForm):
@@ -117,6 +162,10 @@ class Step2_Form(forms.ModelForm):
         fields="__all__"
 
 class Step3_Form(forms.ModelForm):
+    Hobbies=forms.ChoiceField(choices=hobbies,widget=forms.CheckboxSelectMultiple(attrs={'class':'special'}))
+    FavouriteMusic=forms.ChoiceField(choices=favouriteMusic,widget=forms.CheckboxSelectMultiple(attrs={'class':'special'}))
+    Sportsfi=forms.ChoiceField(choices=sportesFItness,widget=forms.CheckboxSelectMultiple(attrs={'class':'special'}))
+    spokenLang=forms.ChoiceField(choices=spokenlangauge,widget=forms.CheckboxSelectMultiple(attrs={'class':'special'}))
     class Meta:
         model=Step3
         fields="__all__"
