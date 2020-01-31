@@ -58,9 +58,9 @@ Bodytype=(
 )
 
 Eatinghabbit=(
-    ('Vegetarian':'Vegetarian'),
-    ('Non-Vegetarian':'Non-Vegetarian'),
-    ('Eggetarian':'Eggetarian')
+    ('Vegetarian','Vegetarian'),
+    ('Non-Vegetarian','Non-Vegetarian'),
+    ('Eggetarian','Eggetarian')
 )
 
 Drinkinghabit=(
@@ -80,9 +80,9 @@ FamilyLocation=(
 )
 #step4 checkbox inputs
 have_children = (
-    ('yes & living together': 'Yes & living together'),
-    ('yes & not living together': 'Yes & not living together')
-    ('no': 'No')
+    ('yes & living together', 'Yes & living together'),
+    ('yes & not living together', 'Yes & not living together'),
+    ('no', 'No')
 )
 
 
@@ -155,7 +155,7 @@ class Step2_Form(forms.ModelForm):
     Bodytype=forms.ChoiceField(choices=Bodytype,widget=forms.RadioSelect(attrs={'class':'special'}))
     Eatinghabit=forms.ChoiceField(choices=Eatinghabbit,widget=forms.RadioSelect(attrs={'class':'special'}))
     Drinkinghabit=forms.ChoiceField(choices=Drinkinghabit,widget=forms.RadioSelect(attrs={'class':'special'}))
-    Smokinghabit=forms.ChoiceField(choices=Smokinghabit,widget=forms.RadioSelect(attrs={'class':'special'}))
+    Smokinghabit=forms.ChoiceField(choices=smokinghabit,widget=forms.RadioSelect(attrs={'class':'special'}))
     Familylocation=forms.ChoiceField(choices=FamilyLocation,widget=forms.RadioSelect(attrs={'class':'special'}))
     class Meta:
         model=Step2
@@ -171,12 +171,12 @@ class Step3_Form(forms.ModelForm):
         fields="__all__"
 
 class Step4_Form(forms.ModelForm):
-    Marital_status = forms.ChoiceField(choices=Meritalstatus,widget=forms.CheckboxInput(attrs={'class': 'special'}))
+    Marital_status = forms.ChoiceField(choices=meritalstatus,widget=forms.CheckboxInput(attrs={'class': 'special'}))
     Have_childeren = forms.ChoiceField(choices=have_children,widget=forms.CheckboxInput(attrs={'class': 'special'}))
     Physical_status = forms.ChoiceField(choices=anydisability, widget=forms.CheckboxInput(attrs={'class': 'special'}))
     Eating_habits=forms.ChoiceField(choices=Eatinghabbit,widget=forms.RadioSelect(attrs={'class':'special'}))
     Drinking_habits=forms.ChoiceField(choices=Drinkinghabit,widget=forms.RadioSelect(attrs={'class':'special'}))
-    Smoking_habit=forms.ChoiceField(choices=Smokinghabit,widget=forms.RadioSelect(attrs={'class':'special'}))
+    Smoking_habit=forms.ChoiceField(choices=smokinghabit,widget=forms.RadioSelect(attrs={'class':'special'}))
     kujaDosham = forms.ChoiceField(choices=dosham, widget=forms.RadioSelect(attrs={'class': 'special'}))
 
     class Meta:
