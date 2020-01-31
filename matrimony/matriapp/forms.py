@@ -50,34 +50,41 @@ employedin=(
     ('Not working','Not working')
 )
 # step2 radiobuttons
-Bodytype(
+Bodytype=(
     ('Slim','Slim'),
     ('Average','Average'),
     ('Athletic','Athletic'),
     ('Heavy','Heavy')
 )
 
-Eatinghabbit(
+Eatinghabbit=(
     ('Vegetarian':'Vegetarian'),
     ('Non-Vegetarian':'Non-Vegetarian'),
     ('Eggetarian':'Eggetarian')
 )
 
-Drinkinghabit(
+Drinkinghabit=(
     ('No','No'),
     ('Drinks Socially','Drinks Socially'),
     ('Yes','Yes')
 )
 
-smokinghabit(
+smokinghabit=(
     ('No','No'),
     ('Occasionally','Occasionally'),
     ('Yes','Yes')
 )
-FamilyLocation(
+FamilyLocation=(
     ('Same as my Location','Same as my Location'),
     ('Different Location','Different Location')
 )
+#step4 checkbox inputs
+have_children = (
+    ('yes & living together': 'Yes & living together'),
+    ('yes & not living together': 'Yes & not living together')
+    ('no': 'No')
+)
+
 
 # step3 radio buttons
 
@@ -100,23 +107,29 @@ class Step1_Form(forms.ModelForm):
         
 
 class Step2_Form(forms.ModelForm):
-    Bodytype=forms.CHoiceField(choices=Bodytype,widget=forms.RadioSelect(attrs={'class':'special'}))
-    Eatinghabit=forms.CHoiceField(choices=Eatinghabbit,widget=forms.RadioSelect(attrs={'class':'special'}))
-    Drinkinghabit=forms.CHoiceField(choices=Drinkinghabit,widget=forms.RadioSelect(attrs={'class':'special'}))
-    Smokinghabit=forms.ChoiceField(choices=Drinkinghabit,widget=forms.RadioSelect(attrs={'class':'special'}))
+    Bodytype=forms.ChoiceField(choices=Bodytype,widget=forms.RadioSelect(attrs={'class':'special'}))
+    Eatinghabit=forms.ChoiceField(choices=Eatinghabbit,widget=forms.RadioSelect(attrs={'class':'special'}))
+    Drinkinghabit=forms.ChoiceField(choices=Drinkinghabit,widget=forms.RadioSelect(attrs={'class':'special'}))
+    Smokinghabit=forms.ChoiceField(choices=Smokinghabit,widget=forms.RadioSelect(attrs={'class':'special'}))
     Familylocation=forms.ChoiceField(choices=FamilyLocation,widget=forms.RadioSelect(attrs={'class':'special'}))
     class Meta:
         model=Step2
         fields="__all__"
 
 class Step3_Form(forms.ModelForm):
-
-
     class Meta:
         model=Step3
         fields="__all__"
 
 class Step4_Form(forms.ModelForm):
+    Marital_status = forms.ChoiceField(choices=Meritalstatus,widget=forms.CheckboxInput(attrs={'class': 'special'}))
+    Have_childeren = forms.ChoiceField(choices=have_children,widget=forms.CheckboxInput(attrs={'class': 'special'}))
+    Physical_status = forms.ChoiceField(choices=anydisability, widget=forms.CheckboxInput(attrs={'class': 'special'}))
+    Eating_habits=forms.ChoiceField(choices=Eatinghabbit,widget=forms.RadioSelect(attrs={'class':'special'}))
+    Drinking_habits=forms.ChoiceField(choices=Drinkinghabit,widget=forms.RadioSelect(attrs={'class':'special'}))
+    Smoking_habit=forms.ChoiceField(choices=Smokinghabit,widget=forms.RadioSelect(attrs={'class':'special'}))
+    kujaDosham = forms.ChoiceField(choices=dosham, widget=forms.RadioSelect(attrs={'class': 'special'}))
+
     class Meta:
         model=Step4
         fields="__all__"                
