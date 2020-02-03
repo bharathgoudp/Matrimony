@@ -9,7 +9,7 @@ dosham=(
     ('no','NO'),
     ("don't","Don't know")
 )
-meritalstatus=(
+maritalstatus=(
     ('Never Married ','Never Married '),
     ('Widowed ','Widowed '),
     ('Divorced','Divorced'),
@@ -58,12 +58,6 @@ Bodytype=(
 )
 
 Eatinghabbit=(
-<<<<<<< HEAD
-=======
-    ('Vegetarian':'Vegetarian'),
-    ('Non-Vegetarian':'Non-Vegetarian'),
-    ('Eggetarian':'Eggetarian')
->>>>>>> af0966098fc7c4cbac366a3c8f77f1f5b9969aa5
     ('Vegetarian','Vegetarian'),
     ('Non-Vegetarian','Non-Vegetarian'),
     ('Eggetarian','Eggetarian')
@@ -110,7 +104,6 @@ hobbies=(
     (' Movies',' Movies'),
     ('Internet Surfing','Internet Surfing'),
     ('Traveling','Traveling')
-<<<<<<< HEAD
 )
 
 
@@ -142,8 +135,6 @@ spokenlangauge=(
     ('Marathi','Marathi'),
     ('Urdu','Urdu')
     
-=======
->>>>>>> af0966098fc7c4cbac366a3c8f77f1f5b9969aa5
 )
 
 
@@ -180,7 +171,7 @@ spokenlangauge=(
 
 class Step1_Form(forms.ModelForm):
     Dosham=forms.ChoiceField(choices=dosham, widget=forms.RadioSelect(attrs={'class': 'special'}))
-    MaritalStatus=forms.ChoiceField(choices=meritalstatus,widget=forms.RadioSelect(attrs={'class':'special'}))
+    MaritalStatus=forms.ChoiceField(choices=maritalstatus,widget=forms.RadioSelect(attrs={'class':'special'}))
     NoofChildren=forms.ChoiceField(choices=Noofchildren, widget=forms.RadioSelect(attrs={'class':'special'}))
     FamilyStatus=forms.ChoiceField(choices=familystatus, widget=forms.RadioSelect(attrs={'class':'special'}))
     FamilyType=forms.ChoiceField(choices=familytype, widget=forms.RadioSelect(attrs={'class':'special'}))
@@ -212,9 +203,9 @@ class Step3_Form(forms.ModelForm):
         fields="__all__"
 
 class Step4_Form(forms.ModelForm):
-    Marital_status = forms.ChoiceField(choices=meritalstatus,widget=forms.CheckboxInput(attrs={'class': 'special'}))
-    Have_childeren = forms.ChoiceField(choices=have_children,widget=forms.CheckboxInput(attrs={'class': 'special'}))
-    Physical_status = forms.ChoiceField(choices=anydisability, widget=forms.CheckboxInput(attrs={'class': 'special'}))
+    Marital_status= forms.ChoiceField(choices=maritalstatus,widget=forms.RadioSelect(attrs={'class': 'special'}))
+    Have_childeren = forms.ChoiceField(choices=have_children,widget=forms.RadioSelect(attrs={'class': 'special'}))
+    Physical_status = forms.ChoiceField(choices=anydisability, widget=forms.RadioSelect(attrs={'class': 'special'}))
     Eating_habits=forms.ChoiceField(choices=Eatinghabbit,widget=forms.RadioSelect(attrs={'class':'special'}))
     Drinking_habits=forms.ChoiceField(choices=Drinkinghabit,widget=forms.RadioSelect(attrs={'class':'special'}))
     Smoking_habit=forms.ChoiceField(choices=smokinghabit,widget=forms.RadioSelect(attrs={'class':'special'}))

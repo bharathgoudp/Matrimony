@@ -129,7 +129,7 @@ class Step4(models.Model):
     Ageto=models.ForeignKey(Ageto,on_delete=models.CASCADE)
     Marital_status=models.CharField(max_length=50)
     Have_childeren=models.CharField(max_length=50)
-    prefredheigth=models.CharField(max_length=50)
+    prefredheigth=models.ForeignKey(Heightt,on_delete=models.CASCADE)
     Physical_status=models.CharField(max_length=50)
     Eating_habits=models.CharField(max_length=50)
     Drinking_habits=models.CharField(max_length=50)
