@@ -94,7 +94,7 @@ class Step2(models.Model):
     Smokinghabit = models.CharField(max_length=35)
     Star = models.ForeignKey(Starr,on_delete=models.CASCADE)
     Raasi = models.ForeignKey(Raasii,on_delete=models.CASCADE)
-    Birthtime = models.DateTimeField()
+    Birthtime = models.CharField(max_length=50)
     Pobcountry = models.ForeignKey(Countryy,on_delete=models.CASCADE)
     Pobstate = models.ForeignKey(Statee,on_delete=models.CASCADE)
     Pobcity = models.ForeignKey(Cityy,on_delete=models.CASCADE)

@@ -58,10 +58,13 @@ def matrisave_1(request):
 
 def matrisave_2(request):
     if request.method == 'POST':
-        form = Step2_Form(request.POST,request.FILES)
+        form = Step2_Form(request.POST)
         if form.is_valid():
             form.save()
             return redirect(step3)
+        else:
+            form = Step2_Form()
+            return render(request, 'step2.html', {'form': form})    
     
     else:
         form = Step2_Form()
@@ -69,10 +72,14 @@ def matrisave_2(request):
         
 def matrisave_3(request):
     if request.method == 'POST':
-        form = Step3_Form(request.POST,request.FILES)
+        form = Step3_Form(request.POST)
+        import ipdb;ipdb.set_trace()
         if form.is_valid():
             form.save()
             return redirect(step4)
+        else:
+            form = Step3_Form()
+            return render(request, 'step3.html', {'form': form})    
     else:
         form = Step3_Form()
         return render(request, 'index.html', {'form': form})
@@ -83,6 +90,9 @@ def matrisave_4(request):
         if form.is_valid():
             form.save()
             return redirect(myprofile)
+        else:
+            form = Step4_Form()
+            return render(request, 'step4.html', {'form': form})    
     else:
         form = Step4_Form()
         return render(request, 'index.html', {'form': form})
