@@ -85,7 +85,25 @@ have_children = (
     ('no', 'No')
 )
 
+# hobbies=(
+#     ('a','a'),
+#     ('b','c',)
+# )
 
+# favouriteMusic=(
+#     ('c','c'),
+#     ('d','d')
+# )
+
+# sportesFItness=(
+#     ('e','e'),
+#     ('f','f')
+# )
+
+# spokenlangauge=(
+#     ('g','g'),
+#     ('h','h')
+# )
 # step3 radio buttons
 
 hobbies=(
@@ -134,39 +152,10 @@ spokenlangauge=(
     ('Gujarati','Gujarati'),
     ('Marathi','Marathi'),
     ('Urdu','Urdu')
-    
 )
 
 
-favouriteMusic=(
-    ('Film songs','Film songs'),
-    ('Indian /Classical Music','Indian /Classical Music'),
-    (' Western Music',' Western Music')
-)
-sportesFItness=(
-    ('Cricket','Cricket'),
-    ('Carrom','Carrom'),
-    ('Chess','Chess'),
-    (' Jogging',' Jogging'),
-    ('Badminton','Badminton'),
-    ('Swimming','Swimming'),
-    ('Tennis','Tennis'),
-    ('Football','Football')
-    
-)
 
-spokenlangauge=(
-    ('English','English'),
-    ('Hindi','Hindi'),
-    ('Tamil','Tamil'),
-    ('Telugu','Telugu'),
-    ('Malayalam','Malayalam'),
-    ('Kannada','Kannada'),
-    ('Gujarati','Gujarati'),
-    ('Marathi','Marathi'),
-    ('Urdu','Urdu')
-    
-)
 
 
 class Step1_Form(forms.ModelForm):
@@ -194,10 +183,10 @@ class Step2_Form(forms.ModelForm):
         fields="__all__"
 
 class Step3_Form(forms.ModelForm):
-    Hobbies=forms.ChoiceField(choices=hobbies,widget=forms.CheckboxSelectMultiple(attrs={'class':'special'}))
-    FavouriteMusic=forms.ChoiceField(choices=favouriteMusic,widget=forms.CheckboxSelectMultiple(attrs={'class':'special'}))
-    Sportsfi=forms.ChoiceField(choices=sportesFItness,widget=forms.CheckboxSelectMultiple(attrs={'class':'special'}))
-    spokenLang=forms.ChoiceField(choices=spokenlangauge,widget=forms.CheckboxSelectMultiple(attrs={'class':'special'}))
+    Hobbies=forms.MultipleChoiceField(choices=hobbies,widget=forms.CheckboxSelectMultiple)
+    FavouriteMusic=forms.MultipleChoiceField(choices=favouriteMusic,widget=forms.CheckboxSelectMultiple)
+    Sportsfi=forms.MultipleChoiceField(choices=sportesFItness,widget=forms.CheckboxSelectMultiple)
+    spokenLang=forms.MultipleChoiceField(choices=spokenlangauge,widget=forms.CheckboxSelectMultiple)
     class Meta:
         model=Step3
         fields="__all__"
