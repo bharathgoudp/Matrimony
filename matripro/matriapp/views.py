@@ -94,58 +94,34 @@ def step4(request,matri_uuid):
         form = Step4_Form(instance=matri_obj)
     return render(request,"step4.html",{'form':form,'viewtab':'step4','slug':None,'matri_obj':matri_obj})    
 
-# # form function:
-
-# def matrisave_1(request):
-#     if request.method == 'POST':
-#         form = Step1_Form(request.POST,request.FILES)
-#         if form.is_valid():
-#             form.save()
-#             return redirect(step2)
-#     else:
-#         form = Step1_Form()
-#         return render(request,'index.html',{'form': form})
-
-# def matrisave_2(request):
-#     if request.method == 'POST':
-#         form = Step2_Form(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect(step3)
-#         else:
-#             form = Step2_Form()
-#             return render(request, 'step2.html', {'form': form})    
-    
-#     else:
-#         form = Step2_Form()
-#         return render(request, 'index.html', {'form': form})
-        
-# def matrisave_3(request):
-#     if request.method == 'POST':
-#         form = Step3_Form(request.POST)
-#         # import pdb;pdb.set_trace()
-#         if form.is_valid():
-#             form.save()
-#             return redirect(step4)
-#         else:
-#             form = Step3_Form()
-#             return render(request, 'step3.html', {'form': form})    
-#     else:
-#         form = Step3_Form()
-#         return render(request, 'index.html', {'form': form})
-
-# def matrisave_4(request):
-#     if request.method == 'POST':
-#         form = Step4_Form(request.POST,request.FILES)
-#         if form.is_valid():
-#             form.save()
-#             return redirect(myprofile)
-#         else:
-#             form = Step4_Form()
-#             return render(request, 'step4.html', {'form': form})    
-#     else:
-#         form = Step4_Form()
-#         return render(request, 'index.html', {'form': form})
+def matridata_edit(request,matri_uuid):
+    matri_obj = get_object_or_404(Matrimonydata, uuid=matri_uuid)
+    if request.method == "POST":
+        form = Step1_Form(request.POST, instance=matri_obj)
+        if form.is_valid():
+            matri_obj = form.save()
+            return redirect('step2', matri_uuid=matri_obj.uuid)
+    else:
+        form = Step1_Form(instance=matri_obj)
+    mothertonguee_objects = MotherTonguee.objects.all()
+    castee_objects = Castee.objects.all()
+    subcastee_objects = Subcastee.objects.all()
+    heightt_objects = Heightt.objects.all()
+    preheightt_objects = Preheightt.objects.all()
+    weightt_objects = Weightt.objects.all()
+    starr_objects = Starr.objects.all()
+    raasii_objects = Raasii.objects.all()
+    countryy_objects = Countryy.objects.all()
+    statee_objects = Statee.objects.all()
+    cityy_objects = Cityy.objects.all()
+    agee_objects = Agee.objects.all()
+    ageto_objects = Ageto.objects.all()
+    religionn_objects = Religionn.objects.all()
+    return render(request,"step1.html",{
+        'form':form,'viewtab':'Basic Details','slug':None,'mothertonguee_objects':mothertonguee_objects,'castee_objects':castee_objects,
+        'subcastee_objects':subcastee_objects,'heightt_objects':heightt_objects,'preheightt_objects':preheightt_objects,'weightt_objects':weightt_objects,
+        'starr_objects':starr_objects,'raasii_objects':raasii_objects,'countryy_objects':countryy_objects,'statee_objects':statee_objects,'cityy_objects':cityy_objects,
+        'agee_objects':agee_objects,'ageto_objects':ageto_objects,'religionn_objects':religionn_objects})
 
 
 
