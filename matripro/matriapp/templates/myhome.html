@@ -216,7 +216,7 @@
                                     <input class="file-upload" type="file" accept="image/*"/>
                                  </div>
                                 <div class="text-center home_profile">
-                                    <h5 class="mt-2 mb-0">Laxman Lucky</h5>
+                                    <h5 class="mt-2 mb-0">{{save.Name}}</h5>
                                     <small class="text-muted">T4697919</small>
                                     
                                     
@@ -275,7 +275,7 @@
 								<div class="vertical-job-body">
 									<div class="row">
 										<div class="col-md-9 col-sm-8">
-                                            
+                                            {% for x in save %}
 											<ul class="can-skils">
                                                 <div class="vrt-job-cmp-logo">
                                                  <a href="job-detail.html">
@@ -305,30 +305,30 @@
                                                 
                                                 <div class="profile_basic">
 
-                                                    <label class="label">Age / Height</label><div class="info">21, 5' 0"</div>
+                                                    <label class="label">Age / Height</label><div class="info">{{x.Birthtime}}/{{x.Height}}</div>
                                                         <div class="clearfix"></div><div class="spacer_4"></div>
 
 
 
-                                                        <label class="label">Religion</label><div class="info">Hindu</div>
+                                                        <label class="label">Religion</label><div class="info">{{ x.Religion }}</div>
                                                     <div class="clearfix"></div><div class="spacer_4"></div>
 
-                                                    <label class="label">Mother Tongue</label><div class="info">Hindi</div>
+                                                    <label class="label">Mother Tongue</label><div class="info">{{x.MotherTongue}}</div>
                                                         <div class="clearfix"></div><div class="spacer_4"></div>
 
-                                                                        <label class="label">Community</label><div class="info">Scheduled Caste (SC), chamar</div>
+                                                                        <label class="label">Community</label><div class="info">{{x.Caste}}</div>
                                                     <div class="clearfix"></div><div class="spacer_4"></div>
 
 
 
-                                                    <label class="label">Location</label><div class="info">Azamgarh, India</div>
+                                                    <label class="label">Location</label><div class="info">{{x.City}},{{x.State}},{{x.Country}}</div>
                                                         <div class="clearfix"></div><div class="spacer_4"></div>
 
 
-                                                                            <label class="label">Education</label><div class="info">Bachelors - Education</div>
+                                                                            <label class="label">Education</label><div class="info">{{x.Educationdetail}}</div>
                                                             <div class="clearfix"></div><div class="spacer_4"></div>
 
-                                                        <label class="label">Profession</label><div class="info">Not working</div>
+                                                        <label class="label">Profession</label><div class="info">{{x.Occupation}}</div>
                                                     <div class="clearfix"></div>
                                                     
                                                     
@@ -374,7 +374,7 @@
 								</div>
 							</div>
 						</div>
-                        
+                        {% endfor %}
                         <!-- <div class="job-verticle-list"> -->
 							<!-- <div class="vertical-job-card"> -->
 								

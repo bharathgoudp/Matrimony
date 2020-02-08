@@ -14,10 +14,12 @@ def index(request):
     return render(request,'index.html')
 
 def myprofile(request):
+    # myp = Matrimonydata.objects.get(id=id)
     return render(request,'my profile.html')
 
 def myhome(request):
-    return render(request,'myhome.html')
+    ak = Matrimonydata.objects.all()
+    return render(request,'myhome.html',{'save':ak})
 
 def selfprofile(request):
     return render(request,'myprofile.html') 
@@ -103,27 +105,25 @@ def matridata_edit(request,matri_uuid):
             return redirect('step2', matri_uuid=matri_obj.uuid)
     else:
         form = Step1_Form(instance=matri_obj)
-    mothertonguee_objects = MotherTonguee.objects.all()
-    castee_objects = Castee.objects.all()
-    subcastee_objects = Subcastee.objects.all()
-    heightt_objects = Heightt.objects.all()
-    preheightt_objects = Preheightt.objects.all()
-    weightt_objects = Weightt.objects.all()
-    starr_objects = Starr.objects.all()
-    raasii_objects = Raasii.objects.all()
-    countryy_objects = Countryy.objects.all()
-    statee_objects = Statee.objects.all()
-    cityy_objects = Cityy.objects.all()
-    agee_objects = Agee.objects.all()
-    ageto_objects = Ageto.objects.all()
-    religionn_objects = Religionn.objects.all()
-    return render(request,"step1.html",{
+        mothertonguee_objects = MotherTonguee.objects.all()
+        castee_objects = Castee.objects.all()
+        subcastee_objects = Subcastee.objects.all()
+        heightt_objects = Heightt.objects.all()
+        preheightt_objects = Preheightt.objects.all()
+        weightt_objects = Weightt.objects.all()
+        starr_objects = Starr.objects.all()
+        raasii_objects = Raasii.objects.all()
+        countryy_objects = Countryy.objects.all()
+        statee_objects = Statee.objects.all()
+        cityy_objects = Cityy.objects.all()
+        agee_objects = Agee.objects.all()
+        ageto_objects = Ageto.objects.all()
+        religionn_objects = Religionn.objects.all()
+        return render(request,"step1.html",{
         'form':form,'viewtab':'Basic Details','slug':None,'mothertonguee_objects':mothertonguee_objects,'castee_objects':castee_objects,
         'subcastee_objects':subcastee_objects,'heightt_objects':heightt_objects,'preheightt_objects':preheightt_objects,'weightt_objects':weightt_objects,
         'starr_objects':starr_objects,'raasii_objects':raasii_objects,'countryy_objects':countryy_objects,'statee_objects':statee_objects,'cityy_objects':cityy_objects,
         'agee_objects':agee_objects,'ageto_objects':ageto_objects,'religionn_objects':religionn_objects})
-
-
 
 
 
