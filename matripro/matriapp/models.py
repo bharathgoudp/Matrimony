@@ -74,6 +74,7 @@ class Matrimonydata(models.Model):
     Name = models.CharField(max_length=25)
     CreateProfile = models.CharField(max_length=20)
     Gender = models.CharField(max_length=15)
+    slug = models.SlugField(max_length=400,unique=True,blank=True, null=True)
     MotherTongue = models.ForeignKey(MotherTonguee,on_delete=models.CASCADE, default=None, blank=True, null=True)
     Mobile = models.IntegerField()
     Email = models.EmailField()
@@ -91,17 +92,19 @@ class Matrimonydata(models.Model):
     HighestEducation = models.CharField(max_length=30)
     EmployedIn = models.CharField(max_length=25)
     Occupation = models.CharField(max_length=25)
+    Package = models.CharField(max_length=30)
      #Step2   
     Bodytype = models.CharField(max_length=25)
     Weight = models.ForeignKey(Weightt,on_delete=models.CASCADE, default=None, blank=True, null=True)
     Educationdetail = models.CharField(max_length=35)
+    Collegename = models.CharField(max_length=40)
     Occupationdetail = models.CharField(max_length=35)
     Eatinghabit = models.CharField(max_length=35)
     Drinkinghabit = models.CharField(max_length=35)
     Smokinghabit = models.CharField(max_length=35)
     Star = models.ForeignKey(Starr,on_delete=models.CASCADE, default=None, blank=True, null=True)
     Raasi = models.ForeignKey(Raasii,on_delete=models.CASCADE, default=None, blank=True, null=True)
-    Birthtime = models.CharField(max_length=50)
+    Birthtime =  models.CharField(max_length=30)
     #Place_of_Birth
     Country = models.ForeignKey(Countryy,on_delete=models.CASCADE, default=None, blank=True, null=True)
     State = models.ForeignKey(Statee,on_delete=models.CASCADE, default=None, blank=True, null=True)
@@ -140,6 +143,9 @@ class Matrimonydata(models.Model):
     kujaDosham=models.CharField(max_length=50)
     def __str__(self):
         return self.Name
+    def save(self,*args, **kwargs):
+        self.slug = slugify(self.Name)
+        super(Matrimonydata,self).save(*args, **kwargs)      
       
     
 

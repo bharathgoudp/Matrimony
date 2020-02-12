@@ -19,7 +19,7 @@ from matriapp import views
 urlpatterns = [
      path('admin/', admin.site.urls),
      path('',views.index,name='index'),
-     path('myprofile/',views.myprofile,name='myprofile'),
+     path('myprofile/<slug:slug>/',views.myprofile,name='myprofile'),
      path('myhome/',views.myhome,name='myhome'),
      path('selfprofile/',views.selfprofile,name='selfprofile'), 
      path('photos/',views.photos,name='photos'), 

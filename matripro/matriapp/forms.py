@@ -20,8 +20,10 @@ Noofchildren=(
     ('1','1'),
     ('2','2'),
     ('3','3'),
-    ('4','4')
+    ('4','4'),
+    ('None','None')
 )
+
 familystatus=(
     ('Middle class','Middle class'),
     ('Upper middle class ','Upper middle class '),
@@ -49,6 +51,15 @@ employedin=(
     ('Defence','Defence'),
     ('Self Employed','Self Employed'),
     ('Not working','Not working')
+)
+Package=(
+    ('1lack to 2lacks per Annum','1lack to 2lacks per Annum'),
+    ('2lacks to 3lacks per Annum','2lacks to 3lacks per Annum'),
+    ('3lacks to 4lacks per Annum','3lacks to 4lacks per Annum'),
+    ('4lacks to 5lacks per Annum','4lacks to 5lacks per Annum'),
+    ('5lacks to 6lacks per Annum','5lacks to 6lacks per Annum'),
+    ('6lacks to 7lacks per Annum','6lacks to 7lacks per Annum'),
+    ('Above7lacks per Annum','Above7lacks per Annum')
 )
 # step2 radiobuttons
 Bodytype=(
@@ -79,6 +90,35 @@ FamilyLocation=(
     ('Same as my Location','Same as my Location'),
     ('Different Location','Different Location')
 )
+Noofbrothers=(
+    ('1','1'),
+    ('2','2'),
+    ('3','3'),
+    ('4','4'),
+    ('No','No')
+)
+Brothersmarried=(
+    ('1','1'),
+    ('2','2'),
+    ('3','3'),
+    ('4','4'),
+    ('No','No')
+)
+Noofsisters=(
+    ('1','1'),
+    ('2','2'),
+    ('3','3'),
+    ('4','4'),
+    ('No','No')
+)
+Sistersmarried=(
+    ('1','1'),
+    ('2','2'),
+    ('3','3'),
+    ('4','4'),
+    ('No','No')
+)
+
 #step4 checkbox inputs
 have_children = (
     ('yes & living together', 'Yes & living together'),
@@ -149,10 +189,11 @@ class Step1_Form(forms.ModelForm):
     FamilyValues=forms.ChoiceField(choices=familyvalues, widget=forms.RadioSelect(attrs={'class':'special'}))
     AnyDisability=forms.ChoiceField(choices=anydisability, widget=forms.RadioSelect(attrs={'class':'special'}))
     EmployedIn=forms.ChoiceField(choices=employedin, widget=forms.RadioSelect(attrs={'class':'special'}))
+    Package=forms.ChoiceField(choices=Package, widget=forms.RadioSelect(attrs={'class':'special'}))
     class Meta:
         model=Matrimonydata
         fields = ('Name','CreateProfile','Gender','MotherTongue','Mobile','Email','Caste','Subcaste','Dosham','MaritalStatus','NoofChildren',
-                       'Height','FamilyStatus','FamilyType','FamilyValues','AnyDisability','HighestEducation','EmployedIn','Occupation')   
+                       'Height','FamilyStatus','FamilyType','FamilyValues','AnyDisability','HighestEducation','EmployedIn','Occupation','Package')   
 
 class Step2_Form(forms.ModelForm):
     Bodytype=forms.ChoiceField(choices=Bodytype,widget=forms.RadioSelect(attrs={'class':'special'}))
@@ -160,9 +201,14 @@ class Step2_Form(forms.ModelForm):
     Drinkinghabit=forms.ChoiceField(choices=Drinkinghabit,widget=forms.RadioSelect(attrs={'class':'special'}))
     Smokinghabit=forms.ChoiceField(choices=smokinghabit,widget=forms.RadioSelect(attrs={'class':'special'}))
     Familylocation=forms.ChoiceField(choices=FamilyLocation,widget=forms.RadioSelect(attrs={'class':'special'}))
+    Noofbrothers=forms.ChoiceField(choices=Noofbrothers,widget=forms.RadioSelect(attrs={'class':'special'}))
+    Brothersmarried=forms.ChoiceField(choices=Brothersmarried,widget=forms.RadioSelect(attrs={'class':'special'}))
+    Noofsisters=forms.ChoiceField(choices=Noofsisters,widget=forms.RadioSelect(attrs={'class':'special'}))
+    Sistersmarried=forms.ChoiceField(choices=Sistersmarried,widget=forms.RadioSelect(attrs={'class':'special'}))
+
     class Meta:
         model=Matrimonydata
-        fields=('Bodytype','Weight','Educationdetail','Occupationdetail','Eatinghabit','Drinkinghabit','Smokinghabit','Star','Raasi','Birthtime',
+        fields=('Bodytype','Weight','Educationdetail','Collegename','Occupationdetail','Eatinghabit','Drinkinghabit','Smokinghabit','Star','Raasi','Birthtime',
                   'Country','State','City','Fatherstatus','Motherstatus','NoofBrothers','Brothersmarried','NoofSisters','Sistersmarried',
                   'Familylocation','Contactno','Ancestralorigin')
 

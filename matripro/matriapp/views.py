@@ -13,16 +13,16 @@ from django.shortcuts import get_object_or_404
 def index(request):
     return render(request,'index.html')
 
-def myprofile(request):
-    # myp = Matrimonydata.objects.get(id=id)
-    return render(request,'my profile.html')
+def myprofile(request,slug):
+    myp = Matrimonydata.objects.get(slug=slug)
+    return render(request,'my profile.html',{'ss':myp})
 
 def myhome(request):
     ak = Matrimonydata.objects.all()
     return render(request,'myhome.html',{'save':ak})
 
 def selfprofile(request):
-    return render(request,'myprofile.html') 
+    return render(request,'selfprofile.html') 
 
 def photos(request):
     return render(request,'photos.html')

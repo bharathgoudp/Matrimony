@@ -304,6 +304,8 @@
                                                 </div>
                                                 
                                                 <div class="profile_basic">
+												<label class="label">Name</label><div class="info">{{x.Name}}</div>
+                                                        <div class="clearfix"></div><div class="spacer_4"></div>
 
                                                     <label class="label">Age / Height</label><div class="info">{{x.Birthtime}}/{{x.Height}}</div>
                                                         <div class="clearfix"></div><div class="spacer_4"></div>
@@ -332,7 +334,7 @@
                                                     <div class="clearfix"></div>
                                                     
                                                     
-                                                        <label class="label">Annual Income</label><div class="info">12.00 lakhs</div>
+                                                        <label class="label">Annual Income</label><div class="info">{{x.Package}}</div>
                                                         <div class="clearfix"></div>
                                                     
                                                     <label class="label">Property bid</label><div class="info">12.00 lakhs</div>
@@ -367,7 +369,7 @@
                                         
 										<div class="col-md-3 col-sm-3">
 											<div class="cmp-job-review">
-												<a style="padding: 3px 2px;    min-width: 140px;background: #f28383 !important;" href="{% url 'myprofile' %}" class="btn-job theme-btn job-apply">View full profile</a>
+												<a style="padding: 3px 2px;    min-width: 140px;background: #f28383 !important;" href="{% url 'myprofile' slug=x.slug %}" class="btn-job theme-btn job-apply">View full profile</a>
 											</div>
 										</div>
 									</div>
