@@ -86,10 +86,6 @@ smokinghabit=(
     ('Occasionally','Occasionally'),
     ('Yes','Yes')
 )
-FamilyLocation=(
-    ('Same as my Location','Same as my Location'),
-    ('Different Location','Different Location')
-)
 Noofbrothers=(
     ('1','1'),
     ('2','2'),
@@ -118,7 +114,10 @@ Sistersmarried=(
     ('4','4'),
     ('No','No')
 )
-
+FamilyLocation=(
+    ('Same as my Location','Same as my Location'),
+    ('Different Location','Different Location')
+)
 #step4 checkbox inputs
 have_children = (
     ('yes & living together', 'Yes & living together'),
@@ -200,12 +199,11 @@ class Step2_Form(forms.ModelForm):
     Eatinghabit=forms.ChoiceField(choices=Eatinghabbit,widget=forms.RadioSelect(attrs={'class':'special'}))
     Drinkinghabit=forms.ChoiceField(choices=Drinkinghabit,widget=forms.RadioSelect(attrs={'class':'special'}))
     Smokinghabit=forms.ChoiceField(choices=smokinghabit,widget=forms.RadioSelect(attrs={'class':'special'}))
-    Familylocation=forms.ChoiceField(choices=FamilyLocation,widget=forms.RadioSelect(attrs={'class':'special'}))
-    Noofbrothers=forms.ChoiceField(choices=Noofbrothers,widget=forms.RadioSelect(attrs={'class':'special'}))
+    NoofBrothers=forms.ChoiceField(choices=Noofbrothers,widget=forms.RadioSelect(attrs={'class':'special'}))
     Brothersmarried=forms.ChoiceField(choices=Brothersmarried,widget=forms.RadioSelect(attrs={'class':'special'}))
-    Noofsisters=forms.ChoiceField(choices=Noofsisters,widget=forms.RadioSelect(attrs={'class':'special'}))
+    NoofSisters=forms.ChoiceField(choices=Noofsisters,widget=forms.RadioSelect(attrs={'class':'special'}))
     Sistersmarried=forms.ChoiceField(choices=Sistersmarried,widget=forms.RadioSelect(attrs={'class':'special'}))
-
+    Familylocation=forms.ChoiceField(choices=FamilyLocation,widget=forms.RadioSelect(attrs={'class':'special'}))
     class Meta:
         model=Matrimonydata
         fields=('Bodytype','Weight','Educationdetail','Collegename','Occupationdetail','Eatinghabit','Drinkinghabit','Smokinghabit','Star','Raasi','Birthtime',

@@ -280,7 +280,7 @@
                                     
                                     <div class="col-md-6">
                                         <p><span>Body Type</span> <span>: &nbsp;{{ss.Bodytype}}</span></p>
-                                        <p><span>Complexion</span> <span>: &nbsp;Wheatish</span></p>
+                                        {% comment %} <p><span>Complexion</span> <span>: &nbsp;Wheatish</span></p> {% endcomment %}
                                         <p><span>Physical Status</span> <span>: &nbsp;{{ss.Physical_status}}</span></p>
                                         <p><span>Eating Habits</span> <span>: &nbsp;{{ss.Eatinghabit}}</span></p>
                                         <p><span>Drinking Habits</span> <span>: &nbsp;{{ss.Drinkinghabit}}</span></p>
@@ -348,12 +348,12 @@
 								<div class="row">
                                     <div class="col-md-12">
                                         <p><span>Education</span> <span>: &nbsp;{{ss.Educationdetail}}</span></p>
-                                        <p><span>College / Institution</span> <span>: &nbsp;Jawaharlal Nehru Technological University (JNTU) - College...</span></p>
-                                        <p><span>Education in Detail</span> <span>: &nbsp;architect and interior designer</span></p>
-                                        <p><span>Employed in</span> <span>: &nbsp;Private Sector</span></p>
-                                        <p><span>Occupation</span> <span>: &nbsp;Architect</span></p>
-                                        <p><span>Occupation in Detail</span> <span>: &nbsp;working for a leading architect firm and also free lance</span></p>
-                                        <p><span>Annual Income</span> <span>: &nbsp;Rs. 12.00 lakhs</span></p>
+                                        <p><span>College / Institution</span> <span>: &nbsp;{{ss.Collegename}}</span></p>
+                                        {% comment %} <p><span>Education in Detail</span> <span>: &nbsp;architect and interior designer</span></p> {% endcomment %}
+                                        <p><span>Employed in</span> <span>: &nbsp;{{ss.EmployedIn}}</span></p>
+                                        <p><span>Occupation</span> <span>: &nbsp;{{ss.Occupation}}</span></p>
+                                        <p><span>Occupation in Detail</span> <span>: &nbsp;{{ss.Occupationdetail}}</span></p>
+                                        <p><span>Annual Income</span> <span>: &nbsp;{{ss.Package}}</span></p>
                                     </div>  
                                     
                                 </div>
@@ -365,16 +365,20 @@
 							<div class="detail-wrapper-body BASIC_DETAILS">
 								<div class="row">
                                     <div class="col-md-6">
-                                        <p><span>Family Values</span> <span>: &nbsp;Moderate</span></p>
-                                        <p><span>Family Type</span> <span>: &nbsp;Nuclear</span></p>
-                                        <p><span>Family Status</span> <span>: &nbsp;Upper middle class</span></p>
-                                        <p><span>Family Location</span> <span>: &nbsp;Secunderabad, Telangana</span></p>
+                                        <p><span>Family Values</span> <span>: &nbsp;{{ss.FamilyValues}}</span></p>
+                                        <p><span>Family Type</span> <span>: &nbsp;{{ss.FamilyType}}</span></p>
+                                        <p><span>Family Status</span> <span>: &nbsp;{{ss.FamilyStatus}}</span></p>
+										<p><span>Father's Status</span> <span>: &nbsp;{{ss.Fatherstatus}}</span></p>
+										<p><span>Mother's Status</span> <span>: &nbsp;{{ss.Motherstatus}}</span></p>
+                                        <p><span>Family Location</span> <span>: &nbsp;{{ss.City}}/{{ss.State}}/{{ss.Country}}</span></p>
                                     </div>  
                                     
                                     <div class="col-md-6">
-                                        <p><span>No of Brother(s)</span> <span>: &nbsp;1 / Not Married</span></p>
-                                        <p><span>No of Sister(s)</span> <span>: &nbsp;None</span></p>
-                                        <p><span>Mother's Status</span> <span>: &nbsp;Homemaker</span></p>
+                                        <p><span>No of Brother(s)</span> <span>: &nbsp;{{ss.NoofBrothers}}</span></p>
+										<p><span>Brothers Married</span> <span>: &nbsp;{{ss.Brothersmarried}}</span></p>
+                                        <p><span>No of Sister(s)</span> <span>: &nbsp;{{ss.NoofSisters}}</span></p>
+										<p><span>Sisters Married</span> <span>: &nbsp;{{ss.Sistersmarried}}</span></p>
+                                       
                                     </div>   
                                     
                                 </div>
