@@ -70,11 +70,13 @@ class Religionn(models.Model):
 
 class Matrimonydata(models.Model):
     uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
+    user = models.ForeignKey('auth.User',on_delete=models.CASCADE, null=True, blank=True)
+    slug = models.SlugField(max_length=400,unique=True,blank=True, null=True)
     #Step1
     Name = models.CharField(max_length=25)
     CreateProfile = models.CharField(max_length=20)
     Gender = models.CharField(max_length=15)
-    slug = models.SlugField(max_length=400,unique=True,blank=True, null=True)
+    
     MotherTongue = models.ForeignKey(MotherTonguee,on_delete=models.CASCADE, default=None, blank=True, null=True)
     Mobile = models.IntegerField()
     Email = models.EmailField()
@@ -144,7 +146,7 @@ class Matrimonydata(models.Model):
     def __str__(self):
         return self.Name
     def save(self,*args, **kwargs):
-        self.slug = slugify(self.Name)
+        self.slug = slugify(self.user)
         super(Matrimonydata,self).save(*args, **kwargs)      
       
     
@@ -168,3 +170,8 @@ def unique_slug_generator(instance, new_slug = None):
               
         return unique_slug_generator(instance, new_slug = new_slug) 
     return slug 
+
+
+class Profile(models.Model):
+    user=models.OneToOneField('auth.user',on_delete=models.CASCADE)
+    pic=models.ImageField(upload_to='profilepics')

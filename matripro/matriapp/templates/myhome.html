@@ -1,6 +1,6 @@
 {% extends 'headfooter.html' %}
-		{% block content %}
-		{% load static %}
+{% block content %}
+{% load static %}
                 
 {% comment %} <html class="no-js" lang="zxx">
 
@@ -208,15 +208,18 @@
 					       <div class="widget-boxed side_bar_prof">
                             <div class="card-body">
                                 <div class="circle">
-                                   <img class="profile-pic" src="{% static 'assets/img/avatar.jpg' %}">
-
+								{% if request.user.profile.pic %}
+                                   <img class="profile-pic" src="{{request.user.profile.pic.url}}">
+                                    {% endif %}
+								{% comment %} <p data-letters="#" class="img-widthdash"></p>
+                                      {% endif %}	 {% endcomment %}
                                  </div>
                                  <div class="p-image">
                                    <i class="fa fa-camera upload-button"></i>
                                     <input class="file-upload" type="file" accept="image/*"/>
                                  </div>
                                 <div class="text-center home_profile">
-                                    <h5 class="mt-2 mb-0">{{save.Name}}</h5>
+                                    <h5 class="mt-2 mb-0">{{request.user.first_name}} {{request.user.last_name}}</h5>
                                     <small class="text-muted">T4697919</small>
                                     
                                     
@@ -247,9 +250,11 @@
                                         </span>
                                         <div class="progress-value">75%</div>
                                     </div>
-                                    
-                                    <a class="edit_your_profile" href="#">Edit your profile</a>
-                                    
+									{% for prop in pro %}
+                                    {% if prop.user == request.user %} 
+                                    <a class="edit_your_profile" href="{% url 'matriedit' matri_uuid=prop.uuid %}">Edit your profile</a>
+                                      {% endif %}
+										{% endfor %}
 								</div>
                                 
                                 
@@ -263,13 +268,7 @@
                     <div class="no_padding_left col-md-9 col-sm-8">
 						
 						 <h4 class="searxch_res_h">Latest Updates</h4>
-                        
-                       
-				
-						
-                        
-                        
-						<div class="job-verticle-list">
+			<div class="job-verticle-list">
 							<div class="vertical-job-card">
 								
 								<div class="vertical-job-body">

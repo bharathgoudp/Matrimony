@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, logout as auth_logout, login as au
 from django.contrib.auth.models import User
 from django.shortcuts import render,redirect
 from matriapp.forms import Step1_Form,Step2_Form,Step3_Form,Step4_Form
-from matriapp.models import Matrimonydata,Castee,Subcastee,Heightt,MotherTonguee,Weightt,Starr,Raasii,Countryy,Statee,Cityy,Agee,Ageto,Religionn
+from matriapp.models import Matrimonydata,Castee,Subcastee,Heightt,MotherTonguee,Weightt,Starr,Raasii,Countryy,Statee,Cityy,Agee,Ageto,Religionn,Profile,Preheightt
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
@@ -19,7 +19,8 @@ def myprofile(request,slug):
 
 def myhome(request):
     ak = Matrimonydata.objects.all()
-    return render(request,'myhome.html',{'save':ak})
+    prop = Matrimonydata.objects.all()
+    return render(request,'myhome.html',{'save':ak,'pro':prop})
 
 def selfprofile(request):
     return render(request,'selfprofile.html') 
@@ -161,6 +162,7 @@ def register(request):
     if request.method == 'POST':
         firstname = request.POST['firstname']
         lastname = request.POST['lastname']
+        profilepic = request.FILES['profilepic']
         email = request.POST['email']
         password1 = request.POST['password']
         password2 = request.POST['confirmpass']
@@ -172,10 +174,12 @@ def register(request):
             else:
 
                 user=User.objects.create_user(username=email,first_name=firstname,last_name=lastname,email=email,password=password1)
-                Log_User=authenticate(username=email,password=password1)
+                Profile.objects.create(user=user,pic=profilepic)
+                user=authenticate(username=email,password=password1)
                 auth.login(request, user, backend='django.contrib.auth.backends.ModelBackend')
-                messages.success(request, "Registered successfully")
-                return redirect(step1)
+                if user:
+                    messages.success(request, "Registered successfully")
+                    return redirect(step1)
         else:
             return render(request, 'index.html')
     else:

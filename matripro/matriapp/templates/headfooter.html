@@ -64,29 +64,33 @@
 						{% if user.is_authenticated %}
 						<li class="dropdown hoe-rheader-submenu message-notification left-min-30">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-								<span><img class="img-circle user_img" src="{% static 'img/avatar-1.jpg' %}"></span>
+							{% if request.user.profile.pic %}
+								<span><img class="img-circle user_img" src="{{request.user.profile.pic.url}}"></span>
 								<!--<span><b>Laxman Lucky</b> <i class=" fa fa-angle-down"></i></span>-->
+							   
 							</a>
 							<ul class="dropdown-menu ">
 								<li class="hoe-submenu-label">
 									<div class="profile-box">
 										<div class="media">
 											<a class="pull-left" href="user-profile.html">
-											<img class="img-circle" src="{% static 'img/avatar-1.jpg' %}">
+											<img class="img-circle" src="{{request.user.profile.pic.url}}">
 											</a>
 											<div class="media-body">
-												<h5 class="media-heading">Welcome <span>Lucky</span></h5>
-												<small>UI Developer</small>
+												<h5 class="media-heading">{{ request.user.first_name }} {{ request.user.last_name }}</h5>
+												
 											</div>
 										</div>
 									</div>
 								</li>
+								
 								<li><a href="{% url 'myhome' %}"><i class="fa fa-user"></i>My Profile</a></li>
-								<li><a href="#"><i class="fa fa-cog"></i>Settings</a></li>
-								<li><a href="#"><i class="fa fa-question-circle"></i>Help</a></li>
+								{% comment %} <li><a href="#"><i class="fa fa-cog"></i>Settings</a></li>
+								<li><a href="#"><i class="fa fa-question-circle"></i>Help</a></li> {% endcomment %}
 								<li><a href="{% url 'logout' %}"><i class="fa fa-power-off"></i>Logout</a></li>
 							</ul>
 						</li>
+						{% endif %}
 						{% else %}
 						<li>
 							<a data-toggle="modal" data-target="#signin" class="login" href="#"><img src="{% static 'img/user.png' %}"> Sign in</a>
@@ -327,8 +331,8 @@
 							
 							<!-- Candidate Panel 2-->
 							<div class="tab-pane fade" id="candidate" role="tabpanel">
-								<form action="{% url 'register' %}" method="post">
-								{% csrf_token %} 
+								<form action="{% url 'register' %}" method="post" enctype='multipart/form-data'>
+								        {% csrf_token %}
                                     
                                     <h5>Let's set up your account, While <br>we find Matches for you!</h5>
 									
@@ -339,6 +343,10 @@
 									<div class="form-group">
 										<label>Last Name</label>
 										<input type="text" name='lastname' class="form-control">
+									</div>
+									<div class="form-group">
+										<label>Profile Photo</label>
+										<input type="file" name='profilepic' class="form-control">
 									</div>
 									<div class="form-group">
 										<label>Email</label>
