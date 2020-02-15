@@ -29,6 +29,21 @@
     background: #f1f1f1;
 }
     </style>
+	<script>
+
+     function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+</script>
 	</head>
 	
 	<body>
@@ -373,16 +388,7 @@
 									
 								</form>
 								
-								<!--<div class="log-option"><span>OR</span></div>
 								
-								<div class="row mrg-bot-20">
-									<div class="col-md-6">
-										<a href="#" title="" class="fb-log-btn log-btn"><i class="fa fa-facebook"></i>Sign In With Facebook</a>
-									</div>
-									<div class="col-md-6">
-										<a href="#" title="" class="gplus-log-btn log-btn"><i class="fa fa-google-plus"></i>Sign In With Google+</a>
-									</div>
-								</div>-->
 								
 							</div>
 							<!--/.Panel 2-->

@@ -297,7 +297,7 @@
                                             <div class="row">
                                                 <div class="col-md-4 profile_basic_pic">
                                                     <div class="user_image">
-                                                        <img src="{% static 'img/01.jpg' %}">
+                                                        <img src="{{request.user.profile.pic.url}}">
                                                     </div>
                                                     
                                                 </div>

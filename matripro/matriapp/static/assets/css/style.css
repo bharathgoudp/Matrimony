@@ -321,13 +321,15 @@ input:hover {
 }
 
 a.sumnit_btn {
-        margin-top: 30px;
-    margin-bottom: 30px;
+	margin-top: 30px;
+    margin-bottom: 0;
     float: right;
     border: 0;
     padding: 8px 30px;
     font-size: 15px;
-    border: 0;
+	border: 0;
+	width: 100%;
+	
 }
 .bootstrap-select.form-control {
 	padding: 0;
@@ -6212,7 +6214,9 @@ a.keword_search {
 
 a.skip {
     background: #f15353 !important;
-    margin-left: 20px;
+	margin-left: 10px;
+	display: block;
+	width: 100%;
 }
 
 a.skip:hover {
@@ -6722,3 +6726,86 @@ span.drag_drop {
 .imageuploadify-details {
     display: none;
 }
+.file-input {
+	font-family: sans-serif;
+	display: inline-block;
+	text-align: left;
+	padding: 8px 0;
+	position: relative;
+	width: 100%;
+}
+.file-input > [type="file"] {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	z-index: 10;
+	cursor: pointer;
+}
+.file-input > .button {
+	display: inline-block;
+	cursor: pointer;
+	background: #ccc;
+	padding: 8px 16px;
+	border-radius: 2px;
+	margin-right: 8px;
+	font-size: 14px;
+}
+.file-input:hover > .button {
+	background: #263238;
+	color: #fff;
+}
+.file-input > .label {
+	color: #333;
+	white-space: nowrap;
+	opacity: .7;
+	font-size: 13px;
+}
+#user_photo {
+	max-width: 180px;
+	margin-top: 16px;
+}
+.upping_img{
+	float: right;
+}
+.div_imgin {
+    float: left;
+}
+.div_images {
+    float: left;
+}
+.div_imgin img{
+	width: 150px;
+    height: 150px;
+}
+.row2{
+	margin-top: 30px;
+	width: 100%;
+    float: left;
+}
+.uploading_inner{
+	width: 100%;
+	float: left;
+}
+.list_jobs{
+	background:#fff;
+	width: 100%;
+    float: left;
+}
+.uloady{
+ padding-left: 80px !important;
+}
+.uploading_inner input {
+    background: #fff !important;
+    padding: 20px;
+}
+
+/* style2 */
+img{
+	max-width:180px;
+  }
+  input[type=file]{
+  padding:10px;
+  background:#2d2d2d;}
