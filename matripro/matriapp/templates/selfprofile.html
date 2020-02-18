@@ -196,7 +196,7 @@
                                         
                                         <div class="name_profile">
                                             <p>
-                                                <span class="name_user">{{ss.Name}}</span> 
+                                                <span class="name_user">{{sp.Name}}</span> 
                                                 <span class="profile_id">(T45DFSD64)</span>
                                             
                                             </p>
@@ -204,14 +204,14 @@
                                         </div>
                                         
                                         <ul class="user_detials_pr">
-                                            <li><i class="fa fa-user" aria-hidden="true"></i> 28 Yrs, 5Ft 8 In/173 Cms</li>
-                                            <li><i class="fa fa-book" aria-hidden="true"></i> Hindu</li>
-                                            <li><i class="fa fa-users" aria-hidden="true"></i> Kshatriya Raju</li>
+                                            <li><i class="fa fa-user" aria-hidden="true"></i>{{sp.Birthtime}}/{{sp.Weight}}</li>
+                                            <li><i class="fa fa-book" aria-hidden="true"></i>{{sp.Height}}</li>
+                                            <li><i class="fa fa-users" aria-hidden="true"></i>{{sp.Caste}}/{{sp.Subcaste}}</li>
                                         
-                                            <li><i class="fa fa-map-marker" aria-hidden="true"></i>Secunderabad,	Telangana, India</li>
-                                            <li><i class="fa fa-graduation-cap" aria-hidden="true"></i> B.Arch</li>
-                                            <li><i class="fa fa-briefcase" aria-hidden="true"></i> Architect</li>
-                                            <li><i class="fa fa-inr" aria-hidden="true"></i> Rs. 12.00 lakhs</li>
+                                            <li><i class="fa fa-map-marker" aria-hidden="true"></i>{{sp.City}},{{sp.State}},{{sp.Country}}</li>
+                                            <li><i class="fa fa-graduation-cap" aria-hidden="true"></i>{{sp.HighestEducation}}</li>
+                                            <li><i class="fa fa-briefcase" aria-hidden="true"></i>{{sp.Occupation}}</li>
+                                            <li><i class="fa fa-inr" aria-hidden="true"></i>{{sp.Package}}</li>
                                             
                                             <li><a class="send_email" href="#">49 Pay</a></li>
                                         </ul>
@@ -269,21 +269,21 @@
 							<div class="detail-wrapper-body BASIC_DETAILS">
 								<div class="row">
                                     <div class="col-md-6">
-                                        <p><span>Name</span> <span>: &nbsp;V Padmavathy Alias V</span></p>
-                                        <p><span>Age</span> <span>: &nbsp;25 Yrs</span></p>
-                                        <p><span>Height</span> <span>: &nbsp;5 Ft 8 In / 173 Cms</span></p>
-                                        <p><span>Weight</span> <span>: &nbsp;63 Kgs / 139 lbs</span></p>
-                                        <p><span>Mother Tongue</span> <span>: &nbsp;Telugu</span></p>
-                                        <p><span>Marital Status</span> <span>: &nbsp;Never married</span></p>
+                                        <p><span>Name</span> <span>: &nbsp;{{sp.Name}}</span></p>
+                                        <p><span>Age</span> <span>: &nbsp;{{sp.Birthtime}}</span></p>
+                                        <p><span>Height</span> <span>: &nbsp;{{sp.Height}}</span></p>
+                                        <p><span>Weight</span> <span>: &nbsp;{{sp.Weight}}</span></p>
+                                        <p><span>Mother Tongue</span> <span>: &nbsp;{{sp.MotherTongue}}</span></p>
+                                        <p><span>Marital Status</span> <span>: &nbsp;{{sp.MaritalStatus}}</span></p>
                                     </div>    
                                     
                                     <div class="col-md-6">
-                                        <p><span>Body Type</span> <span>: &nbsp;Average</span></p>
-                                        <p><span>Complexion</span> <span>: &nbsp;Wheatish</span></p>
+                                        <p><span>Body Type</span> <span>: &nbsp;{{sp.Bodytype}}</span></p>
+                                        {% comment %} <p><span>Complexion</span> <span>: &nbsp;Wheatish</span></p> {% endcomment %}
                                         <p><span>Physical Status</span> <span>: &nbsp;Normal</span></p>
-                                        <p><span>Eating Habits</span> <span>: &nbsp;Non Vegetarian</span></p>
-                                        <p><span>Drinking Habits</span> <span>: &nbsp;Never drinks</span></p>
-                                        <p><span>Smoking Habits</span> <span>: &nbsp;Never smokes</span></p>
+                                        <p><span>Eating Habits</span> <span>: &nbsp;{{sp.Eating_habits}}</span></p>
+                                        <p><span>Drinking Habits</span> <span>: &nbsp;{{sp.Drinking_habits}}</span></p>
+                                        <p><span>Smoking Habits</span> <span>: &nbsp;{{sp.Smoking_habit}}</span></p>
                                     </div> 
                                     
                                 </div>
@@ -296,10 +296,10 @@
 							<div class="detail-wrapper-body BASIC_DETAILS">
 								<div class="row">
                                     <div class="col-md-6">
-                                        <p><span>Contact Number</span> <span>: &nbsp;9988634534</span></p>
+                                        <p><span>Contact Number</span> <span>: &nbsp;{{sp.Contactno}}</span></p>
                                         <p><span>Parent Contact</span> <span>: &nbsp;Not Available</span></p>
                                         <p><span>Chat Status</span> <span>: &nbsp;Offline</span></p>
-                                        <p><span>Send Mail</span> <span>: &nbsp;test@gmail.com</span></p>
+                                        <p><span>Send Mail</span> <span>: &nbsp;{{sp.Email}}</span></p>
                                     </div>    
                                     
                                 </div>
@@ -311,12 +311,12 @@
 							<div class="detail-wrapper-body BASIC_DETAILS">
 								<div class="row">
                                     <div class="col-md-6">
-                                        <p><span>Religion</span> <span>: &nbsp;Hindu</span></p>
-                                        <p><span>Caste / Sub Caste</span> <span>: &nbsp;Kshatriya Raju / Rajus</span></p>
+                                        <p><span>Religion</span> <span>: &nbsp;{{sp.Religion}}</span></p>
+                                        <p><span>Caste / Sub Caste</span> <span>: &nbsp;{{sp.Caste}}/{{sp.Subcaste}}</span></p>
                                         <p><span>Gothram</span> <span>: &nbsp;KASHYAPA</span></p>
                                         <p><span>Zodiac</span> <span>: &nbsp;Aquarius</span></p>
-                                        <p><span>Star / Raasi</span> <span>: &nbsp;Chitha / Kanya (Virgo)</span></p>
-                                        <p><span>Dosham</span> <span>: &nbsp;Don't know</span></p>
+                                        <p><span>Star / Raasi</span> <span>: &nbsp;{{sp.Star}}/{{sp.Raasi}}</span></p>
+                                        <p><span>Dosham</span> <span>: &nbsp;{{sp.Dosham}}</span></p>
                                     </div>    
                                     
                                 </div>
@@ -328,13 +328,13 @@
 							<div class="detail-wrapper-body BASIC_DETAILS">
 								<div class="row">
                                     <div class="col-md-6">
-                                        <p><span>Country</span> <span>: &nbsp;India</span></p>
-                                        <p><span>State</span> <span>: &nbsp;Telangana</span></p>
+                                        <p><span>Country</span> <span>: &nbsp;{{sp.Country}}</span></p>
+                                        <p><span>State</span> <span>: &nbsp;{{sp.State}}</span></p>
                                     </div>  
                                     
                                     <div class="col-md-6">
-                                        <p><span>Citizenship</span> <span>: &nbsp;India</span></p>
-                                        <p><span>City</span> <span>: &nbsp;Secunderabad</span></p>
+                                        <p><span>Citizenship</span> <span>: &nbsp;{{sp.Country}}</span></p>
+                                        <p><span>City</span> <span>: &nbsp;{{sp.City}}</span></p>
                                     </div>   
                                     
                                 </div>
@@ -346,13 +346,13 @@
 							<div class="detail-wrapper-body BASIC_DETAILS">
 								<div class="row">
                                     <div class="col-md-12">
-                                        <p><span>Education</span> <span>: &nbsp;B.Arch</span></p>
-                                        <p><span>College / Institution</span> <span>: &nbsp;Jawaharlal Nehru Technological University (JNTU) - College...</span></p>
-                                        <p><span>Education in Detail</span> <span>: &nbsp;architect and interior designer</span></p>
-                                        <p><span>Employed in</span> <span>: &nbsp;Private Sector</span></p>
-                                        <p><span>Occupation</span> <span>: &nbsp;Architect</span></p>
-                                        <p><span>Occupation in Detail</span> <span>: &nbsp;working for a leading architect firm and also free lance</span></p>
-                                        <p><span>Annual Income</span> <span>: &nbsp;Rs. 12.00 lakhs</span></p>
+                                        <p><span>Education</span> <span>: &nbsp;{{sp.HighestEducation}}</span></p>
+                                        <p><span>College / Institution</span> <span>: &nbsp;{{sp.Collegename}}</span></p>
+                                        {% comment %} <p><span>Education in Detail</span> <span>: &nbsp;</span></p> {% endcomment %}
+                                        <p><span>Employed in</span> <span>: &nbsp;{{sp.EmployedIn}}</span></p>
+                                        <p><span>Occupation</span> <span>: &nbsp;{{sp.Occupation}}</span></p>
+                                        <p><span>Occupation in Detail</span> <span>: &nbsp;{{sp.Occupationdetail}}</span></p>
+                                        <p><span>Annual Income</span> <span>: &nbsp;{{sp.Package}}</span></p>
                                     </div>  
                                     
                                 </div>
@@ -364,16 +364,20 @@
 							<div class="detail-wrapper-body BASIC_DETAILS">
 								<div class="row">
                                     <div class="col-md-6">
-                                        <p><span>Family Values</span> <span>: &nbsp;Moderate</span></p>
-                                        <p><span>Family Type</span> <span>: &nbsp;Nuclear</span></p>
-                                        <p><span>Family Status</span> <span>: &nbsp;Upper middle class</span></p>
-                                        <p><span>Family Location</span> <span>: &nbsp;Secunderabad, Telangana</span></p>
+                                        <p><span>Family Values</span> <span>: &nbsp;{{sp.FamilyValues}}</span></p>
+                                        <p><span>Family Type</span> <span>: &nbsp;{{sp.FamilyType}}</span></p>
+                                        <p><span>Family Status</span> <span>: &nbsp;{{sp.FamilyStatus}}</span></p>
+										<p><span>Mother's Status</span> <span>: &nbsp;{{sp.Motherstatus}}</span></p>
+										<p><span>Father's Status</span> <span>: &nbsp;{{sp.Fatherstatus}}</span></p>
+                                        <p><span>Family Location</span> <span>: &nbsp;{{sp.City}},{{sp.State}},{{sp.Country}}</span></p>
                                     </div>  
                                     
                                     <div class="col-md-6">
-                                        <p><span>No of Brother(s)</span> <span>: &nbsp;1 / Not Married</span></p>
-                                        <p><span>No of Sister(s)</span> <span>: &nbsp;None</span></p>
-                                        <p><span>Mother's Status</span> <span>: &nbsp;Homemaker</span></p>
+                                        <p><span>No of Brother(s)</span> <span>: &nbsp;{{sp.NoofBrothers}}</span></p>
+										 <p><span>Brother(s) Married</span> <span>: &nbsp;{{sp.Brothersmarried}}</span></p>
+                                        <p><span>No of Sister(s)</span> <span>: &nbsp;{{sp.NoofSisters}}</span></p>
+										 <p><span>Sisiter's Married</span> <span>: &nbsp;{{sp.Sistersmarried}}</span></p>
+                                       
                                     </div>   
                                     
                                 </div>
@@ -410,12 +414,14 @@
                                         </span>
                                         <div class="progress-value">75%</div>
                                     </div>
-                                    
-                                    <a class="edit_your_profile" href="#">Edit your profile</a>
-                                    
+                                    {% for prop in pro %}
+                                    {% if prop.user == request.user %} 
+                                     <a class="edit_your_profile" href="{% url 'matriedit' matri_uuid=prop.uuid %}">Edit your profile</a>
+                                   {% endif %}
+										{% endfor %}
 								</div>
                                 
-                                
+                                 
 								
 							</div>
                             

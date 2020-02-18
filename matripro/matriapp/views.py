@@ -22,8 +22,10 @@ def myhome(request):
     prop = Matrimonydata.objects.all()
     return render(request,'myhome.html',{'save':ak,'pro':prop})
 
-def selfprofile(request):
-    return render(request,'selfprofile.html') 
+def selfprofile(request,slug):
+    sp1 = Matrimonydata.objects.get(slug=slug)
+    prop = Matrimonydata.objects.all()
+    return render(request,'selfprofile.html',{'sp':sp1,'pro':prop}) 
 
 def photos(request):
     return render(request,'photos.html')

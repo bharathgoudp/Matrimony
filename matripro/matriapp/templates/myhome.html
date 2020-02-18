@@ -222,11 +222,13 @@
                                     <h5 class="mt-2 mb-0">{{request.user.first_name}} {{request.user.last_name}}</h5>
                                     <small class="text-muted">T4697919</small>
                                     
-                                    
-                                    <a href="{% url 'selfprofile' %}">View Profile</a>
+                                    {% for prop in pro %}
+									 {% if prop.user == request.user %}
+                                    <a href="{% url 'selfprofile' slug=prop.slug %}">View Profile</a>
                                     <a href="#">Manage Photos</a>
                                     <a href="#">Edit Partner Preferences</a>
-                               
+                                     {% endif %}
+									 {% endfor %}
                                 
                                 </div>
                                 
@@ -297,7 +299,7 @@
                                             <div class="row">
                                                 <div class="col-md-4 profile_basic_pic">
                                                     <div class="user_image">
-                                                        <img src="{{request.user.profile.pic.url}}">
+                                                        <img src="{% static 'img/avatar' %}" alt = "something 404 error is there">
                                                     </div>
                                                     
                                                 </div>
