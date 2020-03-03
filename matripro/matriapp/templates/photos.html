@@ -1,6 +1,7 @@
 {% extends 'headfooter.html' %}
 		{% block content %}
 		{% load static %}
+       {% load crispy_forms_tags %}
 
                 
 				<section>
@@ -9,12 +10,14 @@
 <section class="list_jobs">
 	<div class="upload col-md-9 uloady">
 	<div class="row">
+	      {% for pic in pics %}
 		<div class="div_images col-md-3">
 		<div class="div_imgin">
-		<img src="{% static 'img/avatar-1.jpg' %}">
+		<img src="{{pic.photo.url}}">
 		</div>
 		</div>
-		<div class="div_images col-md-3">
+		       {% endfor %}
+		{% comment %} <div class="div_images col-md-3">
 		<div class="div_imgin">
 		<img src="{% static 'img/avatar-1.jpg' %}">
 		</div>
@@ -48,18 +51,22 @@
 		<div class="div_images col-md-3">
 		<div class="div_imgin">
 		<img src="{% static 'img/avatar-1.jpg' %}">
-		</div>
+		</div> {% endcomment %}
 		</div>
 		</div>
 		
 		</div>
 	</div>
 	</div>
+	<form method="post" enctype='multipart/form-data'>
+	     {% csrf_token %}
 	<div class="upload col-md-3">
-	<div class="uploading_inner">
-			<input type='file' onchange="readURL(this);" />
+		<div class="uploading_inner">
+		        {{form}}
+			{% comment %} <input type='file' onchange="readURL(this);" /> {% endcomment %}
 			<a href="#" type="submit" class="btn btn-m theme-btn sumnit_btn skip">Skip</a>
-			<a href="#" type="submit" class="btn btn-m theme-btn sumnit_btn">Submit</a>
+			
+			<input type="submit" class="btn btn-m theme-btn sumnit_btn" value='Submit'>
 		</div>
 		
 	</div>		

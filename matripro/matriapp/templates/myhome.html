@@ -225,7 +225,7 @@
                                     {% for prop in pro %}
 									 {% if prop.user == request.user %}
                                     <a href="{% url 'selfprofile' slug=prop.slug %}">View Profile</a>
-                                    <a href="#">Manage Photos</a>
+                                    <a href="{% url 'photos' %}">Manage Photos</a>
                                     <a href="#">Edit Partner Preferences</a>
                                      {% endif %}
 									 {% endfor %}

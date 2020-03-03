@@ -175,3 +175,7 @@ def unique_slug_generator(instance, new_slug = None):
 class Profile(models.Model):
     user=models.OneToOneField('auth.user',on_delete=models.CASCADE)
     pic=models.ImageField(upload_to='profilepics')
+
+
+class Photos(models.Model):
+    photo = models.ImageField(upload_to='managephoto')    

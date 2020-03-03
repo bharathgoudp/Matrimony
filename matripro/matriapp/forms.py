@@ -1,6 +1,6 @@
 
 from django import forms
-from matriapp.models import Matrimonydata
+from matriapp.models import Matrimonydata,Photos
 from django.forms.widgets import Media,MediaDefiningClass,Widget,TextInput,NumberInput,EmailInput,URLInput,PasswordInput,HiddenInput,MultipleHiddenInput,FileInput,ClearableFileInput,Textarea,DateInput,DateTimeInput,TimeInput,CheckboxInput,Select,NullBooleanSelect,SelectMultiple,RadioSelect,CheckboxSelectMultiple,MultiWidget,SplitDateTimeWidget,SplitHiddenDateTimeWidget,SelectDateWidget
 # from crispy_forms.helper import FormHelper
 # from crispy_forms.layout import Layout, Submit, Row, Column, Button,Field, Fieldset
@@ -233,3 +233,7 @@ class Step4_Form(forms.ModelForm):
         fields=('Agefrom','Ageto','Marital_status','Have_childeren','prefredheigth','Physical_status','Eating_habits','Drinking_habits',
                   'Smoking_habit','Religion','kujaDosham')                
 
+class Photo_form(forms.ModelForm):
+    class Meta:
+        model = Photos
+        fields = ('photo',)

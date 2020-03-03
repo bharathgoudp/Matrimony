@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Matrimonydata,Preheightt,Castee,MotherTonguee,Subcastee,Heightt,Weightt,Starr,Raasii,Countryy,Statee,Cityy,Agee,Ageto,Religionn,Profile
+from .models import Matrimonydata,Preheightt,Castee,MotherTonguee,Subcastee,Heightt,Weightt,Starr,Raasii,Countryy,Statee,Cityy,Agee,Ageto,Religionn,Profile,Photos
 
 admin.site.register(Matrimonydata)
 admin.site.register(Preheightt)
@@ -17,3 +17,4 @@ admin.site.register(Ageto)
 admin.site.register(Religionn)
 admin.site.register(MotherTonguee)
 admin.site.register(Profile)
+admin.site.register(Photos)

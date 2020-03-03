@@ -3,8 +3,8 @@ from django.contrib import auth
 from django.contrib.auth import authenticate, logout as auth_logout, login as auth_login
 from django.contrib.auth.models import User
 from django.shortcuts import render,redirect
-from matriapp.forms import Step1_Form,Step2_Form,Step3_Form,Step4_Form
-from matriapp.models import Matrimonydata,Castee,Subcastee,Heightt,MotherTonguee,Weightt,Starr,Raasii,Countryy,Statee,Cityy,Agee,Ageto,Religionn,Profile,Preheightt
+from matriapp.forms import Step1_Form,Step2_Form,Step3_Form,Step4_Form,Photo_form
+from matriapp.models import Matrimonydata,Photos,Castee,Subcastee,Heightt,MotherTonguee,Weightt,Starr,Raasii,Countryy,Statee,Cityy,Agee,Ageto,Religionn,Profile,Preheightt
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
@@ -28,7 +28,18 @@ def selfprofile(request,slug):
     return render(request,'selfprofile.html',{'sp':sp1,'pro':prop}) 
 
 def photos(request):
-    return render(request,'photos.html')
+    phot_data = Photos.objects.all()
+    if request.method == "POST":
+        form = Photo_form(request.POST or {})
+        if form.is_valid():
+            photo_obj = form.save()
+            return redirect('photos')
+        else:
+            form = Photo_form()
+            return render(request, 'photos.html', {'form': form})    
+    else:
+        form = Photo_form()
+        return render(request,'photos.html', {'form': form,'pics':phot_data})
 
 def profiles(request):
     return render(request,'profiles.html')
@@ -207,3 +218,21 @@ def login(request):
 def logout(request):
     auth_logout(request)
     return redirect('/')    
+
+
+
+
+
+def photo_save(request,matri_uuid):
+    matri_obj = get_object_or_404(Matrimonydata, uuid=matri_uuid)
+    if request.method == "POST":
+        form = Photo_form (request.POST or {}, instance=matri_obj)
+        if form.is_valid():
+            matri_obj = form.save()
+            return redirect('photos')
+        else:
+            form = Photo_form()
+            return render(request, 'photos.html', {'form': form})    
+    else:
+        form = Step3_Form(instance=matri_obj)
+    return render(request,"photos.html",{'form':form,'viewtab':'photos','slug':None,'matri_obj':matri_obj})
