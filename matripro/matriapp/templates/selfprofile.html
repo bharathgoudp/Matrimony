@@ -160,9 +160,12 @@
                                     <div class="col-md-4">
         <div id="carousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
+				
+				{% for pic in pics %}
                 <div class="item active">
-                    <img src="{% static 'img/p1.png' %}">
-                </div>
+                    <img src="{{pic.photo.url}}">
+				</div>	
+				{% endfor %}				
                 <div class="item">
                     <img src="{% static 'img/p2.png' %}">
                 </div>
@@ -179,10 +182,12 @@
         <div id="thumbcarousel" class="carousel slide" data-interval="false">
             <div class="carousel-inner">
                 <div class="item active">
-                    <div data-target="#carousel" data-slide-to="0" class="thumb"><img src="{% static 'img/psmall1.png' %}"></div>
-                    <div data-target="#carousel" data-slide-to="1" class="thumb"><img src="{% static 'img/psmall2.png' %}"></div>
+					{% for pic in pics %}
+					<div data-target="#carousel" data-slide-to="0" class="thumb"><img src="{{pic.photo.url}}"></div>
+					{% endfor %}
+                    <!-- <div data-target="#carousel" data-slide-to="1" class="thumb"><img src="{% static 'img/psmall2.png' %}"></div>
                     <div data-target="#carousel" data-slide-to="2" class="thumb"><img src="{% static 'img/psmall3.png' %}"></div>
-                    <div data-target="#carousel" data-slide-to="3" class="thumb"><img src="{% static 'img/psmall4.png' %}"></div>
+                    <div data-target="#carousel" data-slide-to="3" class="thumb"><img src="{% static 'img/psmall4.png' %}"></div> -->
                 </div>
                 
             </div>

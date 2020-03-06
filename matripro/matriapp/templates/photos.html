@@ -14,44 +14,11 @@
 		<div class="div_images col-md-3">
 		<div class="div_imgin">
 		<img src="{{pic.photo.url}}">
+		<a href="{% url 'deletephoto' pic.id %}"><button type="button" class="btn-default">DELETE</button></a>
 		</div>
 		</div>
 		       {% endfor %}
-		{% comment %} <div class="div_images col-md-3">
-		<div class="div_imgin">
-		<img src="{% static 'img/avatar-1.jpg' %}">
-		</div>
-		</div>
-		<div class="div_images col-md-3">
-		<div class="div_imgin">
-		<img src="{% static 'img/avatar-1.jpg' %}">
-		</div>
-		</div>
-		<div class="div_images col-md-3">
-		<div class="div_imgin">
-		<img src="{% static 'img/avatar-1.jpg' %}">
-		</div>
-		</div>
-		<div class="row2">
-		<div class="div_images col-md-3">
-		<div class="div_imgin">
-		<img src="{% static 'img/avatar-1.jpg' %}">
-		</div>
-		</div>
-		<div class="div_images col-md-3">
-		<div class="div_imgin">
-		<img src="{% static 'img/avatar-1.jpg' %}">
-		</div>
-		</div>
-		<div class="div_images col-md-3">
-		<div class="div_imgin">
-		<img src="{% static 'img/avatar-1.jpg' %}">
-		</div>
-		</div>
-		<div class="div_images col-md-3">
-		<div class="div_imgin">
-		<img src="{% static 'img/avatar-1.jpg' %}">
-		</div> {% endcomment %}
+		
 		</div>
 		</div>
 		
@@ -61,12 +28,12 @@
 	<form method="post" enctype='multipart/form-data'>
 	     {% csrf_token %}
 	<div class="upload col-md-3">
-		<div class="uploading_inner">
+		<div class="">
 		        {{form}}
 			{% comment %} <input type='file' onchange="readURL(this);" /> {% endcomment %}
 			<a href="#" type="submit" class="btn btn-m theme-btn sumnit_btn skip">Skip</a>
-			
-			<input type="submit" class="btn btn-m theme-btn sumnit_btn" value='Submit'>
+			<input type="submit" class="btn btn-m theme-btn sumnit_btn skip skip1" style="background:blue";>
+			<!-- <input type="submit" class="btn btn-m theme-btn sumnit_btn" value='Submit'> -->
 		</div>
 		
 	</div>		

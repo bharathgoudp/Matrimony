@@ -22,17 +22,22 @@ def myhome(request):
     prop = Matrimonydata.objects.all()
     return render(request,'myhome.html',{'save':ak,'pro':prop})
 
+@login_required
 def selfprofile(request,slug):
     sp1 = Matrimonydata.objects.get(slug=slug)
     prop = Matrimonydata.objects.all()
-    return render(request,'selfprofile.html',{'sp':sp1,'pro':prop}) 
+    phot_data = Photos.objects.all()
+    return render(request,'selfprofile.html',{'sp':sp1,'pro':prop,'pics':phot_data}) 
 
+@login_required
 def photos(request):
     phot_data = Photos.objects.all()
     if request.method == "POST":
-        form = Photo_form(request.POST or {})
+        form = Photo_form(request.POST, request.FILES)
         if form.is_valid():
             photo_obj = form.save()
+            photo_obj.user = request.user
+            photo_obj.save()
             return redirect('photos')
         else:
             form = Photo_form()
@@ -40,6 +45,12 @@ def photos(request):
     else:
         form = Photo_form()
         return render(request,'photos.html', {'form': form,'pics':phot_data})
+
+def delete_photo(request, id): 
+    obj = Photos.objects.get(id = id)
+    obj.delete() 
+    return redirect(photos)
+
 
 def profiles(request):
     return render(request,'profiles.html')
